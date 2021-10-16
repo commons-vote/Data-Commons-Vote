@@ -25,6 +25,10 @@ has logo => (
 	is => 'ro',
 );
 
+has number_of_votes => (
+	is => 'ro',
+);
+
 has organizer => (
 	is => 'ro',
 );
@@ -34,7 +38,7 @@ has organizer_logo => (
 	is => 'ro',
 );
 
-has images => (
+has sections => (
 	default => [],
 	is => 'ro',
 );
@@ -48,12 +52,17 @@ sub BUILD {
 	# Check dt_to
 	check_required($self, 'dt_to');
 
+	# Check sections.
+	check_required($self, 'sections');
+	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
+
 	# Check name
 	check_required($self, 'name');
 
-	# Check images.
-	check_required($self, 'images');
-	check_array_object($self, 'images', 'Data::Commons::Vote::Image', 'Image');
+	# Check number.
+	if (defined $self->{'number_of_votes'}) {
+		check_number($self, 'number_of_votes');
+	}
 
 	return;
 }
