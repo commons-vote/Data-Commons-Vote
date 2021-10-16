@@ -1,8 +1,10 @@
 use strict;
 use warnings;
 
+use English;
+use Error::Pure::Utils qw(clean);
 use Data::Commons::Vote::Image;
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
 use Test::NoWarnings;
 
 # Test.
@@ -19,3 +21,11 @@ $obj = Data::Commons::Vote::Image->new(
 	'wikimedia_username' => 'Zuzana_Zonova',
 );
 isa_ok($obj, 'Data::Commons::Vote::Image');
+
+# Test.
+eval {
+	Data::Commons::Vote::Image->new;
+};
+is($EVAL_ERROR, "Parameter 'image' is required.\n",
+	"Parameter 'image' is required.");
+clean();
