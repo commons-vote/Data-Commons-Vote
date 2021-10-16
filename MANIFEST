@@ -27,8 +27,6 @@ t/Data-Commons-Vote-Image/06-image.t
 t/Data-Commons-Vote-Image/07-wikimedia_username.t
 t/Data-Commons-Vote-Result-Image/01-use.t
 t/Data-Commons-Vote-Result-Image/02-version.t
-t/Data-Commons-Vote-Result/01-use.t
-t/Data-Commons-Vote-Result/02-version.t
 t/Data-Commons-Vote-Section/01-use.t
 t/Data-Commons-Vote-Section/02-version.t
 t/Data-Commons-Vote-Section/03-new.t
@@ -41,7 +39,6 @@ t/Data-Commons-Vote/02-version.t
 Vote.pm
 Vote/Competition.pm
 Vote/Image.pm
-Vote/Result.pm
 Vote/Result/Image.pm
 Vote/Section.pm
 xt/Data-Commons-Vote-Competition/01-pod_coverage.t
