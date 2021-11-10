@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils qw(check_required);
+use Mo::utils qw(check_length check_required);
 
 our $VERSION = 0.01;
 
@@ -28,8 +28,18 @@ has wikimedia_username => (
 sub BUILD {
 	my $self = shift;
 
+	# Check author.
+	check_length($self, 'author', 255);
+
+	# Check comment.
+	check_length($self, 'comment', 1000);
+
 	# Check image.
 	check_required($self, 'image');
+	check_length($self, 'image', 255);
+
+	# Check wikimedia username.
+	check_length($self, 'wikimedia_username', 255);
 
 	return;
 }

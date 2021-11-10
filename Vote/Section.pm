@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object check_number check_required);
+use Mo::utils qw(check_array_object check_length check_number check_required);
 
 our $VERSION = 0.01;
 
@@ -31,12 +31,17 @@ sub BUILD {
 
 	# Check name
 	check_required($self, 'name');
+	check_length($self, 'name', 255);
 
 	# Check images.
 	check_required($self, 'images');
 	check_array_object($self, 'images', 'Data::Commons::Vote::Image', 'Image');
 
+	# Check logo.
+	check_length($self, 'logo', 255);
+
 	# Check number.
+	# XXX Check for defined in Mo::utils?
 	if (defined $self->{'number_of_votes'}) {
 		check_number($self, 'number_of_votes');
 	}
