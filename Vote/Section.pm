@@ -8,6 +8,10 @@ use Mo::utils qw(check_array_object check_length check_number check_required);
 
 our $VERSION = 0.01;
 
+has id => (
+	is => 'ro',
+);
+
 has images => (
 	default => [],
 	is => 'ro',
@@ -28,6 +32,10 @@ has number_of_votes => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check id.
+	check_required($self, 'id');
+	check_number($self, 'id');
 
 	# Check name
 	check_required($self, 'name');
