@@ -66,7 +66,7 @@ sub BUILD {
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
 	# Check organizer.
-	check_organizer($self, 'organizer', 255);
+	check_length($self, 'organizer', 255);
 
 	# Check organizer logo.
 	check_length($self, 'organizer_logo', 255);
