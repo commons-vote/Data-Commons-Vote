@@ -34,7 +34,6 @@ sub BUILD {
 	check_length($self, 'name', 255);
 
 	# Check images.
-	check_required($self, 'images');
 	check_array_object($self, 'images', 'Data::Commons::Vote::Image', 'Image');
 
 	# Check logo.
