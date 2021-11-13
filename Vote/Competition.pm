@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object check_isa check_length check_required);
+use Mo::utils qw(check_array_object check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
@@ -13,6 +13,10 @@ has dt_from => (
 );
 
 has dt_to => (
+	is => 'ro',
+);
+
+has id => (
 	is => 'ro',
 );
 
@@ -53,6 +57,10 @@ sub BUILD {
 	# Check dt_to
 	check_required($self, 'dt_to');
 	check_isa($self, 'dt_to', 'DateTime');
+
+	# Check id.
+	check_required($self, 'id');
+	check_number($self, 'id');
 
 	# Check name
 	check_required($self, 'name');
