@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils qw(check_length check_required);
+use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
@@ -16,12 +16,16 @@ has comment => (
 	is => 'ro',
 );
 
+has id => (
+	is => 'ro',
+);
+
 # Image from Commons.
 has image => (
 	is => 'ro',
 );
 
-has wikimedia_username => (
+has uploader => (
 	is => 'ro',
 );
 
@@ -34,12 +38,17 @@ sub BUILD {
 	# Check comment.
 	check_length($self, 'comment', 1000);
 
+	# Check id.
+	check_required($self, 'id');
+	check_number($self, 'id');
+
 	# Check image.
 	check_required($self, 'image');
 	check_length($self, 'image', 255);
 
-	# Check wikimedia username.
-	check_length($self, 'wikimedia_username', 255);
+	# Check uploader.
+	check_required($self, 'uploader');
+	check_isa($self, 'uploader', 'Data::Commons::Vote::User');
 
 	return;
 }
