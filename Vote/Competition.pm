@@ -62,7 +62,6 @@ sub BUILD {
 	check_length($self, 'logo', 255);
 
 	# Check sections.
-	check_required($self, 'sections');
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
 	# Check organizer.
