@@ -8,10 +8,12 @@ use Mo::utils qw(check_array_object check_length check_number check_required);
 
 our $VERSION = 0.01;
 
+# Section id.
 has id => (
 	is => 'ro',
 );
 
+# List of images in section.
 has images => (
 	default => [],
 	is => 'ro',
