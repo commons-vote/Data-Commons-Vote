@@ -2,10 +2,11 @@ TODO
 ====
 1. Do image pridat do komentare moznost vicejazycnych komentaru a pole (muze jich
 byt vice)
-2. We don't need id required.
-id mean, that record is in database, but data object could exist before saving
-to database.
 3.
 
 Applied
 =======
+2. We don't need id required.
+id mean, that record is in database, but data object could exist before saving
+to database.
+OK [20211216] skim

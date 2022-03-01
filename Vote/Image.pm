@@ -39,7 +39,6 @@ sub BUILD {
 	check_length($self, 'comment', 1000);
 
 	# Check id.
-	check_required($self, 'id');
 	check_number($self, 'id');
 
 	# Check image.

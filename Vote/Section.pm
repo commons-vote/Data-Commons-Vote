@@ -36,7 +36,6 @@ sub BUILD {
 	my $self = shift;
 
 	# Check id.
-	check_required($self, 'id');
 	check_number($self, 'id');
 
 	# Check name

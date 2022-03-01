@@ -33,7 +33,6 @@ sub BUILD {
 	}
 
 	# Check id.
-	check_required($self, 'id');
 	check_number($self, 'id');
 
 	# Check author.

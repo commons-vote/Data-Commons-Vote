@@ -59,7 +59,6 @@ sub BUILD {
 	check_isa($self, 'dt_to', 'DateTime');
 
 	# Check id.
-	check_required($self, 'id');
 	check_number($self, 'id');
 
 	# Check name
