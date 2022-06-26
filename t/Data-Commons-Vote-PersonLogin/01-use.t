@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('Data::Commons::Vote::User');
+	use_ok('Data::Commons::Vote::PersonLogin');
 }
 
 # Test.
-require_ok('Data::Commons::Vote::User');
+require_ok('Data::Commons::Vote::PersonLogin');

@@ -1,4 +1,4 @@
-package Data::Commons::Vote::UserLogin;
+package Data::Commons::Vote::PersonLogin;
 
 use strict;
 use warnings;
@@ -20,7 +20,7 @@ has password => (
 	is => 'ro',
 );
 
-has user => (
+has person => (
 	is => 'ro',
 );
 
@@ -28,7 +28,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check user.
-	check_isa($self, 'user', 'Data::Commons::Vote::User');
+	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
 	# Check hash type.
 	check_isa($self, 'hash_type', 'Data::Commons::Vote::HashType');

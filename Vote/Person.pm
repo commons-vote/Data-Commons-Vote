@@ -1,4 +1,4 @@
-package Data::Commons::Vote::User;
+package Data::Commons::Vote::Person;
 
 use strict;
 use warnings;

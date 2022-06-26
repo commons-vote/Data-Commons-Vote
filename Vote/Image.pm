@@ -47,7 +47,7 @@ sub BUILD {
 
 	# Check uploader.
 	check_required($self, 'uploader');
-	check_isa($self, 'uploader', 'Data::Commons::Vote::User');
+	check_isa($self, 'uploader', 'Data::Commons::Vote::Person');
 
 	return;
 }
