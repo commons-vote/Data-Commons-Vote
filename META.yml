@@ -30,7 +30,7 @@ requires:
   Mo::utils: 0.05
   perl: 5.8.0
 resources:
-  bugtracker: https://github.com/michal-josef-spacek/Data-Commons-Vote
+  bugtracker: https://github.com/michal-josef-spacek/Data-Commons-Vote/issues
   homepage: https://github.com/michal-josef-spacek/Data-Commons-Vote
   license: http://opensource.org/licenses/bsd-license.php
   repository: git://github.com/michal-josef-spacek/Data-Commong-Vote
