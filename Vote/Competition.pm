@@ -30,6 +30,7 @@ has logo => (
 
 has number_of_votes => (
 	is => 'ro',
+	default => 0,
 );
 
 has organizer => (
@@ -65,6 +66,9 @@ sub BUILD {
 
 	# Check logo.
 	check_length($self, 'logo', 255);
+
+	# Check number of votes.
+	check_number($self, 'number_of_votes');
 
 	# Check sections.
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
