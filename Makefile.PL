@@ -21,7 +21,7 @@ recursive_author_tests('xt');
 requires 'English' => 0;
 requires 'Error::Pure' => 0;
 requires 'Mo' => 0;
-requires 'Mo::utils' => 0.05;
+requires 'Mo::utils' => 0.09;
 resources 'bugtracker' => 'https://github.com/michal-josef-spacek/Data-Commons-Vote/issues';
 resources 'homepage' => 'https://github.com/michal-josef-spacek/Data-Commons-Vote';
 resources 'repository' => 'git://github.com/michal-josef-spacek/Data-Commong-Vote';
