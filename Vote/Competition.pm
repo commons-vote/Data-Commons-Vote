@@ -24,7 +24,6 @@ has name => (
 	is => 'ro',
 );
 
-# Logo from Commons.
 has logo => (
 	is => 'ro',
 );
@@ -37,7 +36,6 @@ has organizer => (
 	is => 'ro',
 );
 
-# Organizer logo from Commons.
 has organizer_logo => (
 	is => 'ro',
 );
