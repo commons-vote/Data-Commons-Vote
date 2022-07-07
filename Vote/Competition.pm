@@ -98,7 +98,7 @@ __END__
 
 =head1 NAME
 
-Data::Commons::Vote::Competition - Data object for Wikimedia Commons image on grid.
+Data::Commons::Vote::Competition - Data object for commons.vote competition.
 
 =head1 SYNOPSIS
 
