@@ -30,6 +30,7 @@ has name => (
 
 has number_of_votes => (
 	is => 'ro',
+	default => 0,
 );
 
 sub BUILD {
