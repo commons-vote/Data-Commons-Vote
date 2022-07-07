@@ -15,13 +15,33 @@ __END__
 
 =head1 NAME
 
-Data::Commons::Vote - TODO
+Data::Commons::Vote - Data objects for commons.vote application.
 
 =head1 SEE ALSO
 
 =over
 
-=item L<TODO>
+=item L<Data::Commons::Vote::Competition>
+
+Data object for commons.vote competition.
+
+=item L<Data::Commons::Vote::HashType>
+
+TODO
+
+=item L<Data::Commons::Vote::Image>
+
+TODO
+
+=item L<Data::Commons::Vote::Person>
+
+TODO
+
+=item L<Data::Commons::Vote::PersonLogin>
+
+TODO
+
+=item L<Data::Commons::Vote::Section>
 
 TODO
 

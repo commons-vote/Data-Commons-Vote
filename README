@@ -1,8 +1,23 @@
 NAME
-    Data::Commons::Vote - TODO
+    Data::Commons::Vote - Data objects for commons.vote application.
 
 SEE ALSO
-    TODO
+    Data::Commons::Vote::Competition
+        Data object for commons.vote competition.
+
+    Data::Commons::Vote::HashType
+        TODO
+
+    Data::Commons::Vote::Image
+        TODO
+
+    Data::Commons::Vote::Person
+        TODO
+
+    Data::Commons::Vote::PersonLogin
+        TODO
+
+    Data::Commons::Vote::Section
         TODO
 
 REPOSITORY
