@@ -80,10 +80,7 @@ sub BUILD {
 	check_length($self, 'organizer_logo', 255);
 
 	# Check number.
-	# XXX Check for defined in Mo::utils?
-	if (defined $self->{'number_of_votes'}) {
-		check_number($self, 'number_of_votes');
-	}
+	check_number($self, 'number_of_votes');
 
 	return;
 }

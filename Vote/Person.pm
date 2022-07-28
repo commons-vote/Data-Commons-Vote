@@ -28,9 +28,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check first_upload_at.
-	if (defined $self->{'first_upload_at'}) {
-		check_isa($self, 'first_upload_at', 'DateTime');
-	}
+	check_isa($self, 'first_upload_at', 'DateTime');
 
 	# Check id.
 	check_number($self, 'id');
