@@ -30,6 +30,11 @@ t/Data-Commons-Vote-Image/05-comment.t
 t/Data-Commons-Vote-Image/06-image.t
 t/Data-Commons-Vote-Person/01-use.t
 t/Data-Commons-Vote-Person/02-version.t
+t/Data-Commons-Vote-Person/03-new.t
+t/Data-Commons-Vote-Person/04-first_upload_at.t
+t/Data-Commons-Vote-Person/05-id.t
+t/Data-Commons-Vote-Person/06-name.t
+t/Data-Commons-Vote-Person/07-wm_username.t
 t/Data-Commons-Vote-PersonLogin/01-use.t
 t/Data-Commons-Vote-PersonLogin/02-version.t
 t/Data-Commons-Vote-Result-Image/01-use.t
