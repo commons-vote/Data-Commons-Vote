@@ -60,24 +60,24 @@ sub BUILD {
 	# Check id.
 	check_number($self, 'id');
 
+	# Check logo.
+	check_length($self, 'logo', 255);
+
 	# Check name
 	check_required($self, 'name');
 	check_length($self, 'name', 255);
 
-	# Check logo.
-	check_length($self, 'logo', 255);
-
 	# Check number of votes.
 	check_number($self, 'number_of_votes');
-
-	# Check sections.
-	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
 	# Check organizer.
 	check_length($self, 'organizer', 255);
 
 	# Check organizer logo.
 	check_length($self, 'organizer_logo', 255);
+
+	# Check sections.
+	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
 	return;
 }
