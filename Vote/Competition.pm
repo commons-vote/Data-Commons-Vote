@@ -302,7 +302,36 @@ Returns reference to array with Data::Commons::Vote::Section instances.
 
 =head1 ERRORS
 
-TODO
+ new():
+         Parameter 'dt_from' is required.
+         Parameter 'dt_from' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'dt_to' is required.
+         Parameter 'dt_to' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'id' must a number.
+                 Value: %s
+         Parameter 'jury_voting' is required.
+         Parameter 'jury_voting' must be a bool (0/1).
+                 Value: %s
+         Parameter 'logo' has length greater than '255'.
+                 Value: %s
+         Parameter 'name' is required.
+         Parameter 'name' has length greater than '255'.
+                 Value: %s
+         Parameter 'number_of_votes' must a number.
+                 Value: %s
+         Parameter 'organizer' has length greater than '255'.
+                 Value: %s
+         Parameter 'organizer_logo' has length greater than '255'.
+                 Value: %s
+         Parameter 'public_voting' is required.
+         Parameter 'public_voting' must be a bool (0/1).
+                 Value: %s
+         Parameter 'sections' must be a array.
+         Section isn't 'Data::Commons::Vote::Section' object.
 
 =head1 EXAMPLE
 
