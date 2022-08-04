@@ -306,6 +306,8 @@ TODO
 
 =head1 EXAMPLE
 
+=for comment filename=create_and_print_object.pl
+
  use strict;
  use warnings;
 
@@ -324,7 +326,9 @@ TODO
                  'year' => 2022,
          ),
          'id' => 1,
+         'jury_voting' => 1,
          'name' => 'Competition',
+         'public_voting' => 1,
  );
 
  # Print out.
@@ -332,6 +336,8 @@ TODO
  print 'Name: '.$obj->name."\n";
  print 'Date from: '.$obj->dt_from."\n";
  print 'Date to: '.$obj->dt_to."\n";
+ print 'Jury voting: '.$obj->jury_voting."\n";
+ print 'Public voting: '.$obj->public_voting."\n";
  print 'Number of votes: '.$obj->number_of_votes."\n";
 
  # Output:
@@ -339,6 +345,8 @@ TODO
  # Name: Competition
  # Date from: 2022-07-10T00:00:00
  # Date to: 2022-07-20T00:00:00
+ # Jury voting: 1
+ # Public voting: 1
  # Number of votes: 0
 
 =head1 DEPENDENCIES
