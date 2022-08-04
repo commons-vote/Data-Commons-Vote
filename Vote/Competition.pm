@@ -24,11 +24,11 @@ has jury_voting => (
 	is => 'ro',
 );
 
-has name => (
+has logo => (
 	is => 'ro',
 );
 
-has logo => (
+has name => (
 	is => 'ro',
 );
 
@@ -119,8 +119,8 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $dt_to = $obj->dt_to;
  my $id = $obj->id;
  my $jury_voting = $obj->jury_voting;
- my $name = $obj->name;
  my $logo = $obj->logo;
+ my $name = $obj->name;
  my $number_of_votes = $obj->number_of_votes;
  my $organizer = $obj->organizer;
  my $organizer_logo = $obj->organizer_logo;
@@ -164,12 +164,6 @@ Jury voting flag.
 It's bool.
 It's required.
 
-=item * C<name>
-
-Name of competition.
-Length of name is 255.
-It's required.
-
 =item * C<logo>
 
 Competition logo.
@@ -177,6 +171,12 @@ Logo is file name in Wikimedia Commons.
 Length of logo file is 255.
 It's optional.
 Default value is undef.
+
+=item * C<name>
+
+Name of competition.
+Length of name is 255.
+It's required.
 
 =item * C<number_of_votes>
 
@@ -246,19 +246,19 @@ Get jury voting flag.
 
 Returns bool.
 
-=head2 C<name>
-
- my $name = $obj->name;
-
-Get competition name.
-
-Returns string.
-
 =head2 C<logo>
 
  my $logo = $obj->logo;
 
 Get competition logo file name in Wikimedia Commons.
+
+Returns string.
+
+=head2 C<name>
+
+ my $name = $obj->name;
+
+Get competition name.
 
 Returns string.
 
