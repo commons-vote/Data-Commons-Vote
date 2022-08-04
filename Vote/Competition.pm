@@ -3,6 +3,7 @@ package Data::Commons::Vote::Competition;
 use strict;
 use warnings;
 
+use Error::Pure qw(err);
 use Mo qw(build default is);
 use Mo::utils qw(check_array_object check_bool check_isa check_length check_number check_required);
 
@@ -18,6 +19,11 @@ has dt_to => (
 
 has id => (
 	is => 'ro',
+);
+
+has jury_max_marking_number => (
+	is => 'ro',
+	default => 5,
 );
 
 has jury_voting => (
@@ -67,6 +73,14 @@ sub BUILD {
 
 	# Check id.
 	check_number($self, 'id');
+
+	# Check maximal number for jury marking.
+	check_number($self, 'jury_max_marking_number');
+	if (defined $self->{'jury_max_marking_number'}
+		&& $self->{'jury_max_marking_number'} < 1) {
+
+		err "Parameter 'jury_max_marking_number' must be a positive number.";
+	}
 
 	# Check jury voting.
 	check_required($self, 'jury_voting');
@@ -118,6 +132,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $dt_from = $obj->dt_from;
  my $dt_to = $obj->dt_to;
  my $id = $obj->id;
+ my $jury_max_marking_number = $obj->jury_max_marking_number;
  my $jury_voting = $obj->jury_voting;
  my $logo = $obj->logo;
  my $name = $obj->name;
@@ -155,6 +170,13 @@ It's required.
 
 Id of competition.
 It's number.
+It's optional.
+Default value is undef.
+
+=item * C<jury_max_marking_number>
+
+Maximal number for jury marking.
+It's positive number.
 It's optional.
 Default value is undef.
 
@@ -238,6 +260,14 @@ Get competition id.
 
 Returns number.
 
+=head2 C<jury_max_marking_number>
+
+ my $jury_max_marking_number = $obj->jury_max_marking_number;
+
+Get maximal number for jury marking.
+
+Returns number.
+
 =head2 C<jury_voting>
 
  my $jury_voting = $obj->jury_voting;
@@ -313,6 +343,9 @@ Returns reference to array with Data::Commons::Vote::Section instances.
                  Reference: %s
          Parameter 'id' must a number.
                  Value: %s
+         Parameter 'jury_max_marking_number' must a number.
+                 Value: %s
+         Parameter 'jury_max_marking_number' must be a positive number.
          Parameter 'jury_voting' is required.
          Parameter 'jury_voting' must be a bool (0/1).
                  Value: %s
@@ -355,6 +388,7 @@ Returns reference to array with Data::Commons::Vote::Section instances.
                  'year' => 2022,
          ),
          'id' => 1,
+         'jury_max_marking_number' => 5,
          'jury_voting' => 1,
          'name' => 'Competition',
          'public_voting' => 1,
@@ -366,6 +400,7 @@ Returns reference to array with Data::Commons::Vote::Section instances.
  print 'Date from: '.$obj->dt_from."\n";
  print 'Date to: '.$obj->dt_to."\n";
  print 'Jury voting: '.$obj->jury_voting."\n";
+ print 'Maximum number fo jury marking: '.$obj->jury_max_marking_number."\n";
  print 'Public voting: '.$obj->public_voting."\n";
  print 'Number of votes: '.$obj->number_of_votes."\n";
 
@@ -375,12 +410,13 @@ Returns reference to array with Data::Commons::Vote::Section instances.
  # Date from: 2022-07-10T00:00:00
  # Date to: 2022-07-20T00:00:00
  # Jury voting: 1
+ # Maximum number fo jury marking: 5
  # Public voting: 1
  # Number of votes: 0
 
 =head1 DEPENDENCIES
 
-L<Data::Commons::Image>,
+L<Error::Pure>,
 L<Mo>,
 L<Mo::utils>.
 
