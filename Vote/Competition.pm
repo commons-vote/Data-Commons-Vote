@@ -79,9 +79,6 @@ sub BUILD {
 	# Check organizer logo.
 	check_length($self, 'organizer_logo', 255);
 
-	# Check number.
-	check_number($self, 'number_of_votes');
-
 	return;
 }
 
