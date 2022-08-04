@@ -69,6 +69,7 @@ sub BUILD {
 	check_number($self, 'id');
 
 	# Check jury voting.
+	check_required($self, 'jury_voting');
 	check_bool($self, 'jury_voting');
 
 	# Check logo.
@@ -88,6 +89,7 @@ sub BUILD {
 	check_length($self, 'organizer_logo', 255);
 
 	# Check public voting flag.
+	check_required($self, 'public_voting');
 	check_bool($self, 'public_voting');
 
 	# Check sections.
@@ -160,6 +162,7 @@ Default value is undef.
 
 Jury voting flag.
 It's bool.
+It's required.
 Default value is false.
 
 =item * C<name>
@@ -201,6 +204,7 @@ Default value is undef.
 
 Public voting flag.
 It's bool.
+It's required.
 Default value is false.
 
 =item * C<sections>
