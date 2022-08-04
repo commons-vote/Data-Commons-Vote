@@ -163,7 +163,6 @@ Default value is undef.
 Jury voting flag.
 It's bool.
 It's required.
-Default value is false.
 
 =item * C<name>
 
@@ -205,7 +204,6 @@ Default value is undef.
 Public voting flag.
 It's bool.
 It's required.
-Default value is false.
 
 =item * C<sections>
 
