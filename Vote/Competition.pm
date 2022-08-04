@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object check_isa check_length check_number check_required);
+use Mo::utils qw(check_array_object check_bool check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
@@ -38,6 +38,10 @@ has organizer => (
 );
 
 has organizer_logo => (
+	is => 'ro',
+);
+
+has public_voting => (
 	is => 'ro',
 );
 
@@ -76,6 +80,9 @@ sub BUILD {
 	# Check organizer logo.
 	check_length($self, 'organizer_logo', 255);
 
+	# Check public voting flag.
+	check_bool($self, 'public_voting');
+
 	# Check sections.
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
@@ -107,6 +114,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $number_of_votes = $obj->number_of_votes;
  my $organizer = $obj->organizer;
  my $organizer_logo = $obj->organizer_logo;
+ my $public_voting = $obj->public_voting;
  my $sections_ar = $obj->sections;
 
 =head1 METHODS
@@ -174,6 +182,12 @@ Organizer logo.
 Length of logo file is 255.
 It's optional.
 Default value is undef.
+
+=item * C<public_voting>
+
+Public voting flag.
+It's bool.
+Default value is false.
 
 =item * C<sections>
 
@@ -246,7 +260,13 @@ Returns string.
 
 Get organizer logo file name in Wikimedia Commons.
 
-Returns string.
+=head2 C<public_voting>
+
+ my $public_voting = $obj->public_voting;
+
+Get public voting flag.
+
+Returns bool.
 
 =head2 C<sections>
 
