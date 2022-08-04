@@ -20,6 +20,10 @@ has id => (
 	is => 'ro',
 );
 
+has jury_voting => (
+	is => 'ro',
+);
+
 has name => (
 	is => 'ro',
 );
@@ -63,6 +67,9 @@ sub BUILD {
 
 	# Check id.
 	check_number($self, 'id');
+
+	# Check jury voting.
+	check_bool($self, 'jury_voting');
 
 	# Check logo.
 	check_length($self, 'logo', 255);
@@ -109,6 +116,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $dt_from = $obj->dt_from;
  my $dt_to = $obj->dt_to;
  my $id = $obj->id;
+ my $jury_voting = $obj->jury_voting;
  my $name = $obj->name;
  my $logo = $obj->logo;
  my $number_of_votes = $obj->number_of_votes;
@@ -147,6 +155,12 @@ Id of competition.
 It's number.
 It's optional.
 Default value is undef.
+
+=item * C<jury_voting>
+
+Jury voting flag.
+It's bool.
+Default value is false.
 
 =item * C<name>
 
@@ -221,6 +235,14 @@ Returns DateTime object.
 Get competition id.
 
 Returns number.
+
+=head2 C<jury_voting>
+
+ my $jury_voting = $obj->jury_voting;
+
+Get jury voting flag.
+
+Returns bool.
 
 =head2 C<name>
 
