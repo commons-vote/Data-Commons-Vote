@@ -1,7 +1,7 @@
 Changes
 CONCEPT
-examples/create_and_print_object.pl
-examples/ex1.pl
+examples/create_and_print_competition.pl
+examples/create_and_print_person.pl
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
 inc/Module/Install/AuthorTests.pm

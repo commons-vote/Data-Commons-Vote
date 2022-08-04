@@ -306,7 +306,7 @@ TODO
 
 =head1 EXAMPLE
 
-=for comment filename=create_and_print_object.pl
+=for comment filename=create_and_print_competition.pl
 
  use strict;
  use warnings;
