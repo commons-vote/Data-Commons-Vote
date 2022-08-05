@@ -3,8 +3,8 @@ package Data::Commons::Vote::Person;
 use strict;
 use warnings;
 
-use Mo qw(build is);
-use Mo::utils qw(check_isa check_length check_number);
+use Mo qw(build is default);
+use Mo::utils qw(check_array_object check_isa check_length check_number);
 
 our $VERSION = 0.01;
 
@@ -18,6 +18,11 @@ has id => (
 
 has name => (
 	is => 'ro',
+);
+
+has roles => (
+	is => 'ro',
+	default => [],
 );
 
 has wm_username => (
@@ -35,6 +40,9 @@ sub BUILD {
 
 	# Check name.
 	check_length($self, 'name', 255);
+
+	# Check roles.
+	check_array_object($self, 'roles', 'Data::Commons::Vote::Role');
 
 	# Check wikimedia username.
 	check_length($self, 'wm_username', 255);
@@ -62,6 +70,7 @@ Data::Commons::Vote::Person - Data object for commons.vote person.
  my $first_upload_at = $obj->first_upload_at;
  my $id = $obj->id;
  my $name = $obj->name;
+ my $roles_ar = $obj->roles;
  my $wm_username = $obj->wm_username;
 
 =head1 METHODS
@@ -96,6 +105,13 @@ Name of person.
 Length of name is 255.
 It's optional.
 
+=item * C<roles>
+
+Person roles.
+Item must be a Data::Commons::Vote::Role object.
+It's optional.
+Default value is [].
+
 =item * C<wm_username>
 
 Wikimedia username.
@@ -128,6 +144,14 @@ Get person name.
 
 Returns string.
 
+=head2 C<roles>
+
+ my $roles_ar = $obj->roles;
+
+Get list of roles.
+
+Returns reference to array with 'Data::Commons::Vote::Role' instances.
+
 =head2 C<wm_username>
 
  my $wm_username = $obj->wm_username;
@@ -157,6 +181,7 @@ Returns string.
  use warnings;
 
  use Data::Commons::Vote::Person;
+ use Data::Commons::Vote::Role;
  use DateTime;
  use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 
@@ -170,6 +195,13 @@ Returns string.
          ),
          'id' => 1,
          'name' => decode_utf8('Michal Josef Špaček'),
+         'roles' => [
+                 Data::Commons::Vote::Role->new(
+                         'id' => 1,
+                         'name' => 'admin',
+                         'description' => 'Admin role.',
+                 ),
+         ],
          'wm_username' => 'Skim',
  );
 
@@ -178,12 +210,24 @@ Returns string.
  print 'Name: '.encode_utf8($obj->name)."\n";
  print 'First upload to Wikimedia Commons: '.$obj->first_upload_at."\n";
  print 'Wikimedia username: '.$obj->wm_username."\n";
+ print "Roles:\n";
+ foreach my $role (@{$obj->roles}) {
+         print "-\n";
+         print '  Role id: '.$role->id."\n";
+         print '  Role name: '.$role->name."\n";
+         print '  Role description: '.$role->description."\n";
+ }
 
  # Output:
  # Id: 1
  # Name: Michal Josef Špaček
  # First upload to Wikimedia Commons: 2009-07-18T21:05:00
  # Wikimedia username: Skim
+ # Roles:
+ # -
+ #   Role id: 1
+ #   Role name: admin
+ #   Role description: Admin role.
 
 =head1 DEPENDENCIES
 
