@@ -33,7 +33,7 @@ sub BUILD {
 	# Check id.
 	check_number($self, 'id');
 
-	# Check author.
+	# Check name.
 	check_length($self, 'name', 255);
 
 	# Check wikimedia username.
