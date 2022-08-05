@@ -422,7 +422,7 @@ L<Mo::utils>.
 
 =head1 REPOSITORY
 
-L<https://github.com/michal-josef-spacek/Data-Commons-Vote>
+L<https://github.com/commons-vote/Data-Commons-Vote>
 
 =head1 AUTHOR
 

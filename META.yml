@@ -31,8 +31,8 @@ requires:
   Mo::utils: 0.09
   perl: 5.8.0
 resources:
-  bugtracker: https://github.com/michal-josef-spacek/Data-Commons-Vote/issues
-  homepage: https://github.com/michal-josef-spacek/Data-Commons-Vote
+  bugtracker: https://github.com/commons-vote/Data-Commons-Vote/issues
+  homepage: https://github.com/commons-vote/Data-Commons-Vote
   license: http://opensource.org/licenses/bsd-license.php
-  repository: git://github.com/michal-josef-spacek/Data-Commong-Vote
+  repository: git://github.com/commons-vote/Data-Commong-Vote
 version: '0.01'
