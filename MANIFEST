@@ -52,6 +52,8 @@ t/Data-Commons-Vote-PersonLogin/01-use.t
 t/Data-Commons-Vote-PersonLogin/02-version.t
 t/Data-Commons-Vote-Result-Image/01-use.t
 t/Data-Commons-Vote-Result-Image/02-version.t
+t/Data-Commons-Vote-Role/01-use.t
+t/Data-Commons-Vote-Role/02-version.t
 t/Data-Commons-Vote-Section/01-use.t
 t/Data-Commons-Vote-Section/02-version.t
 t/Data-Commons-Vote-Section/03-new.t
@@ -72,6 +74,7 @@ Vote/Image.pm
 Vote/Person.pm
 Vote/PersonLogin.pm
 Vote/Result/Image.pm
+Vote/Role.pm
 Vote/Section.pm
 Vote/Vote.pm
 Vote/VoteType.pm
@@ -89,6 +92,8 @@ xt/Data-Commons-Vote-Result-Image/01-pod_coverage.t
 xt/Data-Commons-Vote-Result-Image/02-pod.t
 xt/Data-Commons-Vote-Result/01-pod_coverage.t
 xt/Data-Commons-Vote-Result/02-pod.t
+xt/Data-Commons-Vote-Role/01-pod_coverage.t
+xt/Data-Commons-Vote-Role/02-pod.t
 xt/Data-Commons-Vote-Section/01-pod_coverage.t
 xt/Data-Commons-Vote-Section/02-pod.t
 xt/Data-Commons-Vote-User/01-pod_coverage.t
