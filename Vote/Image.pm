@@ -16,6 +16,10 @@ has comment => (
 	is => 'ro',
 );
 
+has dt_created => (
+	is => 'ro',
+);
+
 has height => (
 	is => 'ro',
 );
@@ -45,6 +49,9 @@ sub BUILD {
 
 	# Check comment.
 	check_length($self, 'comment', 1000);
+
+	# Check date created.
+	check_isa($self, 'dt_created', 'DateTime');
 
 	# Check height.
 	check_number($self, 'height');

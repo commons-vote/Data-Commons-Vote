@@ -40,11 +40,12 @@ t/Data-Commons-Vote-Image/02-version.t
 t/Data-Commons-Vote-Image/03-new.t
 t/Data-Commons-Vote-Image/04-author.t
 t/Data-Commons-Vote-Image/05-comment.t
-t/Data-Commons-Vote-Image/06-height.t
-t/Data-Commons-Vote-Image/07-id.t
-t/Data-Commons-Vote-Image/08-image.t
-t/Data-Commons-Vote-Image/09-uploader.t
-t/Data-Commons-Vote-Image/10-width.t
+t/Data-Commons-Vote-Image/06-dt_created.t
+t/Data-Commons-Vote-Image/07-height.t
+t/Data-Commons-Vote-Image/08-id.t
+t/Data-Commons-Vote-Image/09-image.t
+t/Data-Commons-Vote-Image/10-uploader.t
+t/Data-Commons-Vote-Image/11-width.t
 t/Data-Commons-Vote-Person/01-use.t
 t/Data-Commons-Vote-Person/02-version.t
 t/Data-Commons-Vote-Person/03-new.t
