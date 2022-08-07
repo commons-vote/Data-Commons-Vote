@@ -1,16 +1,12 @@
-package Data::Commons::Vote::SectionCategory;
+package Data::Commons::Vote::Category;
 
 use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils qw(check_isa check_length check_required);
+use Mo::utils qw(check_length check_required);
 
 our $VERSION = 0.01;
-
-has section => (
-	is => 'ro',
-);
 
 has category => (
 	is => 'ro',
@@ -18,9 +14,6 @@ has category => (
 
 sub BUILD {
 	my $self = shift;
-
-	# Check section.
-	check_isa($self, 'section', 'Data::Commons::Vote::Section');
 
 	# Check category.
 	check_required($self, 'category');

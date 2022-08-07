@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('Data::Commons::Vote::SectionCategory');
+	use_ok('Data::Commons::Vote::Category');
 }
 
 # Test.
-require_ok('Data::Commons::Vote::SectionCategory');
+require_ok('Data::Commons::Vote::Category');
