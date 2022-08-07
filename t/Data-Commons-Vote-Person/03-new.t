@@ -15,13 +15,13 @@ isa_ok($obj, 'Data::Commons::Vote::Person');
 
 # Test.
 $obj = Data::Commons::Vote::Person->new(
-         'first_upload_at' => DateTime->new(
-                 'day' => 18,
-                 'month' => 7,
-                 'year' => 2009,
-                 'hour' => 21,
-                 'minute' => 5,
-         ),
+	'first_upload_at' => DateTime->new(
+		'day' => 18,
+		'month' => 7,
+		'year' => 2009,
+		'hour' => 21,
+		'minute' => 5,
+	 ),
 	'id' => 1,
 	'name' => decode_utf8('Michal Josef Špaček'),
 	'wm_username' => 'Skim',
