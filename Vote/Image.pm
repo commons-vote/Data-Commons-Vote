@@ -16,6 +16,10 @@ has comment => (
 	is => 'ro',
 );
 
+has height => (
+	is => 'ro',
+);
+
 has id => (
 	is => 'ro',
 );
@@ -29,6 +33,10 @@ has uploader => (
 	is => 'ro',
 );
 
+has width => (
+	is => 'ro',
+);
+
 sub BUILD {
 	my $self = shift;
 
@@ -37,6 +45,9 @@ sub BUILD {
 
 	# Check comment.
 	check_length($self, 'comment', 1000);
+
+	# Check height.
+	check_number($self, 'height');
 
 	# Check id.
 	check_number($self, 'id');
@@ -48,6 +59,9 @@ sub BUILD {
 	# Check uploader.
 	check_required($self, 'uploader');
 	check_isa($self, 'uploader', 'Data::Commons::Vote::Person');
+
+	# Check width.
+	check_number($self, 'width');
 
 	return;
 }
