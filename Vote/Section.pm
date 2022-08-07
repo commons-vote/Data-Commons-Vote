@@ -4,9 +4,13 @@ use strict;
 use warnings;
 
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object check_length check_number check_required);
+use Mo::utils qw(check_isa check_array_object check_length check_number check_required);
 
 our $VERSION = 0.01;
+
+has competition => (
+	is => 'ro',
+);
 
 # Section id.
 has id => (
@@ -35,6 +39,9 @@ has number_of_votes => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check competition.
+	check_isa($self, 'competition', 'Data::Commons::Vote::Competition', 'Competition');
 
 	# Check id.
 	check_number($self, 'id');
