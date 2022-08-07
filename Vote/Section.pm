@@ -8,6 +8,11 @@ use Mo::utils qw(check_isa check_array_object check_length check_number check_re
 
 our $VERSION = 0.01;
 
+has categories => (
+	default => [],
+	is => 'ro',
+);
+
 has competition => (
 	is => 'ro',
 );
@@ -39,6 +44,9 @@ has number_of_votes => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check categories.
+	check_array_object($self, 'categories', 'Data::Commons::Vote::Category', 'Category');
 
 	# Check competition.
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition', 'Competition');
