@@ -8,6 +8,10 @@ use Mo::utils qw(check_array_object check_isa check_length check_number);
 
 our $VERSION = 0.01;
 
+has email => (
+	is => 'ro',
+);
+
 has first_upload_at => (
 	is => 'ro',
 );
@@ -67,6 +71,7 @@ Data::Commons::Vote::Person - Data object for commons.vote person.
  use Data::Commons::Vote::Person;
 
  my $obj = Data::Commons::Vote::Person->new(%params);
+ my $email = $obj->email;
  my $first_upload_at = $obj->first_upload_at;
  my $id = $obj->id;
  my $name = $obj->name;
@@ -84,6 +89,12 @@ Constructor.
 Returns instance of object.
 
 =over 8
+
+=item * C<email>
+
+Person email.
+It's optional.
+Default value is undef.
 
 =item * C<first_upload_at>
 
@@ -119,6 +130,14 @@ It's optional.
 Default value is undef.
 
 =back
+
+=head2 C<email>
+
+ my $email = $obj->email;
+
+Get person email.
+
+Returns string.
 
 =head2 C<first_upload_at>
 
@@ -186,6 +205,7 @@ Returns string.
  use Unicode::UTF8 qw(decode_utf8 encode_utf8);
 
  my $obj = Data::Commons::Vote::Person->new(
+         'email' => 'skim@cpan.org',
          'first_upload_at' => DateTime->new(
                  'day' => 18,
                  'month' => 7,
@@ -208,6 +228,7 @@ Returns string.
  # Print out.
  print 'Id: '.$obj->id."\n";
  print 'Name: '.encode_utf8($obj->name)."\n";
+ print 'Email: '.$obj->email."\n";
  print 'First upload to Wikimedia Commons: '.$obj->first_upload_at."\n";
  print 'Wikimedia username: '.$obj->wm_username."\n";
  print "Roles:\n";
@@ -221,6 +242,7 @@ Returns string.
  # Output:
  # Id: 1
  # Name: Michal Josef Špaček
+ # Email: skim@cpan.org
  # First upload to Wikimedia Commons: 2009-07-18T21:05:00
  # Wikimedia username: Skim
  # Roles:

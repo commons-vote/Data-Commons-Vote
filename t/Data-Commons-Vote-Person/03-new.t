@@ -15,6 +15,7 @@ isa_ok($obj, 'Data::Commons::Vote::Person');
 
 # Test.
 $obj = Data::Commons::Vote::Person->new(
+	'email' => 'skim@cpan.org',
 	'first_upload_at' => DateTime->new(
 		'day' => 18,
 		'month' => 7,
