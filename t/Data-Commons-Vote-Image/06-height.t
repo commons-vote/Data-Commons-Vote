@@ -1,11 +1,9 @@
 use strict;
 use warnings;
 
-use English;
-use Error::Pure::Utils qw(clean);
 use Data::Commons::Vote::Image;
 use Data::Commons::Vote::Person;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 3;
 use Test::NoWarnings;
 
 # Test.
@@ -16,23 +14,13 @@ my $obj = Data::Commons::Vote::Image->new(
 	'image' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
-isa_ok($obj, 'Data::Commons::Vote::Image');
+is($obj->height, undef, 'Get height (undef = default).');
 
 # Test.
 $obj = Data::Commons::Vote::Image->new(
 	'author' => 'Zuzana Zonova',
-	'comment' => 'Contemporary male portrait in black and white.',
-	'height' => 800,
+	'height' => 600,
 	'image' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
-	'width' => 600,
 );
-isa_ok($obj, 'Data::Commons::Vote::Image');
-
-# Test.
-eval {
-	Data::Commons::Vote::Image->new;
-};
-is($EVAL_ERROR, "Parameter 'image' is required.\n",
-	"Parameter 'image' is required.");
-clean();
+is($obj->height, 600, 'Get height (600).');
