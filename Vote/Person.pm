@@ -25,8 +25,8 @@ has name => (
 );
 
 has roles => (
-	is => 'ro',
 	default => [],
+	is => 'ro',
 );
 
 has wm_username => (
