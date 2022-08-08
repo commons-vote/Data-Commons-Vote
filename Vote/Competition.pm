@@ -51,6 +51,10 @@ has organizer_logo => (
 	is => 'ro',
 );
 
+has person_roles => (
+	is => 'ro',
+);
+
 has public_voting => (
 	is => 'ro',
 );
@@ -103,6 +107,9 @@ sub BUILD {
 
 	# Check organizer logo.
 	check_length($self, 'organizer_logo', 255);
+
+	# Check person roles.
+	check_array_object($self, 'person_roles', 'Data::Commons::Vote::PersonRole', 'PersonRole');
 
 	# Check public voting flag.
 	if (! defined $self->{'public_voting'}) {
