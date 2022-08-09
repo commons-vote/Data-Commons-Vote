@@ -16,6 +16,10 @@ has comment => (
 	is => 'ro',
 );
 
+has created_by => (
+	is => 'ro',
+);
+
 has dt_created => (
 	is => 'ro',
 );
@@ -49,6 +53,9 @@ sub BUILD {
 
 	# Check comment.
 	check_length($self, 'comment', 1000);
+
+	# Check created_by.
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check date created.
 	check_isa($self, 'dt_created', 'DateTime');
