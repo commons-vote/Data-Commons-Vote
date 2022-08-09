@@ -9,6 +9,10 @@ use Mo::utils qw(check_array_object check_bool check_isa check_length check_numb
 
 our $VERSION = 0.01;
 
+has created_by => (
+	is => 'ro',
+);
+
 has dt_from => (
 	is => 'ro',
 );
@@ -66,6 +70,9 @@ has sections => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check created_by.
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check dt_from
 	check_required($self, 'dt_from');

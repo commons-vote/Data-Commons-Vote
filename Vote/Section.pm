@@ -17,6 +17,10 @@ has competition => (
 	is => 'ro',
 );
 
+has created_by => (
+	is => 'ro',
+);
+
 # Section id.
 has id => (
 	is => 'ro',
@@ -50,6 +54,9 @@ sub BUILD {
 
 	# Check competition.
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition', 'Competition');
+
+	# Check created_by.
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check id.
 	check_number($self, 'id');
