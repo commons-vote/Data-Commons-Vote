@@ -24,6 +24,10 @@ has dt_created => (
 	is => 'ro',
 );
 
+has dt_uploaded => (
+	is => 'ro',
+);
+
 has height => (
 	is => 'ro',
 );
@@ -63,6 +67,9 @@ sub BUILD {
 
 	# Check date created.
 	check_isa($self, 'dt_created', 'DateTime');
+
+	# Check date uploaded.
+	check_isa($self, 'dt_uploaded', 'DateTime');
 
 	# Check height.
 	check_number($self, 'height');
