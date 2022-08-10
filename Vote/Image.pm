@@ -37,6 +37,10 @@ has image => (
 	is => 'ro',
 );
 
+has size => (
+	is => 'ro',
+);
+
 has uploader => (
 	is => 'ro',
 );
@@ -69,6 +73,9 @@ sub BUILD {
 	# Check image.
 	check_required($self, 'image');
 	check_length($self, 'image', 255);
+
+	# Check size.
+	check_number($self, 'size');
 
 	# Check uploader.
 	check_required($self, 'uploader');
