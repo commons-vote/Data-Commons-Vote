@@ -79,6 +79,10 @@ t/Data-Commons-Vote-Vote/01-use.t
 t/Data-Commons-Vote-Vote/02-version.t
 t/Data-Commons-Vote-VoteType/01-use.t
 t/Data-Commons-Vote-VoteType/02-version.t
+t/Data-Commons-Vote-VoteType/03-new.t
+t/Data-Commons-Vote-VoteType/04-description.t
+t/Data-Commons-Vote-VoteType/05-id.t
+t/Data-Commons-Vote-VoteType/06-type.t
 t/Data-Commons-Vote/01-use.t
 t/Data-Commons-Vote/02-version.t
 Vote.pm
