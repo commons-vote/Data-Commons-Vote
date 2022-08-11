@@ -8,7 +8,10 @@ use Mo::utils qw(check_length check_number check_required);
 
 our $VERSION = 0.01;
 
-# Validation type id.
+has description => (
+	is => 'ro',
+);
+
 has id => (
 	is => 'ro',
 );
@@ -17,12 +20,11 @@ has type => (
 	is => 'ro',
 );
 
-has description => (
-	is => 'ro',
-);
-
 sub BUILD {
 	my $self = shift;
+
+	# Check description.
+	check_length($self, 'description', 255);
 
 	# Check id.
 	check_number($self, 'id');
@@ -30,9 +32,6 @@ sub BUILD {
 	# Check type.
 	check_required($self, 'type');
 	check_length($self, 'type', 30);
-
-	# Check description.
-	check_length($self, 'description', 255);
 
 	return;
 }
