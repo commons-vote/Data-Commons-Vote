@@ -8,7 +8,6 @@ use Mo::utils qw(check_length check_number check_required);
 
 our $VERSION = 0.01;
 
-# role id.
 has id => (
 	is => 'ro',
 );
