@@ -18,6 +18,10 @@ has dt_from => (
 	is => 'ro',
 );
 
+has dt_images_loaded => (
+	is => 'ro',
+);
+
 has dt_to => (
 	is => 'ro',
 );
@@ -79,6 +83,9 @@ sub BUILD {
 	# Check dt_from
 	check_required($self, 'dt_from');
 	check_isa($self, 'dt_from', 'DateTime');
+
+	# Check dt_images_loaded.
+	check_isa($self, 'dt_images_loaded', 'DateTime');
 
 	# Check dt_to
 	check_required($self, 'dt_to');
@@ -150,6 +157,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
 
  my $obj = Data::Commons::Vote::Competition->new(%params);
  my $dt_from = $obj->dt_from;
+ my $dt_images_loaded = $obj->dt_images_loaded;
  my $dt_to = $obj->dt_to;
  my $id = $obj->id;
  my $jury_max_marking_number = $obj->jury_max_marking_number;
@@ -179,6 +187,12 @@ Returns instance of object.
 Competition date from.
 It is DateTime instance.
 It's required.
+
+=item * C<dt_images_loaded>
+
+Datetime of situation when images loaded to database.
+It is DateTime instance.
+It's optional.
 
 =item * C<dt_to>
 
@@ -261,6 +275,14 @@ Default value is [].
  my $dt_from = $obj->dt_from;
 
 Get begin date of competition.
+
+Returns DateTime object.
+
+=head2 C<dt_images_loaded>
+
+ my $dt_images_loaded = $obj->dt_images_loaded;
+
+Get date time of situation when images were loaded.
 
 Returns DateTime object.
 
@@ -355,6 +377,9 @@ Returns reference to array with Data::Commons::Vote::Section instances.
  new():
          Parameter 'dt_from' is required.
          Parameter 'dt_from' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'dt_images_loaded' must be a 'DateTime' object.
                  Value: %s
                  Reference: %s
          Parameter 'dt_to' is required.
