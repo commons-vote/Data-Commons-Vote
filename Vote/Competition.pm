@@ -5,7 +5,8 @@ use warnings;
 
 use Error::Pure qw(err);
 use Mo qw(build default is);
-use Mo::utils qw(check_array_object check_bool check_isa check_length check_number check_required);
+use Mo::utils qw(check_array_object check_bool check_isa check_length
+	check_number check_required);
 
 our $VERSION = 0.01;
 
