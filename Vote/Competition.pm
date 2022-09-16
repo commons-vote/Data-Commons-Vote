@@ -72,6 +72,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check created_by.
+	check_required($self, 'created_by');
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check dt_from
