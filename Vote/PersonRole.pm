@@ -4,11 +4,15 @@ use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils qw(check_isa);
+use Mo::utils qw(check_isa check_required);
 
 our $VERSION = 0.01;
 
 has competition => (
+	is => 'ro',
+);
+
+has created_by => (
 	is => 'ro',
 );
 
@@ -25,6 +29,10 @@ sub BUILD {
 
 	# Check competition.
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition');
+
+	# Check created_by.
+	check_required($self, 'created_by');
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check user.
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');

@@ -8,6 +8,10 @@ use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
+has created_by => (
+	is => 'ro',
+);
+
 has image => (
 	is => 'ro',
 );
@@ -18,6 +22,10 @@ has section_id => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check created_by.
+	check_required($self, 'created_by');
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check image.
 	check_required($self, 'image');
