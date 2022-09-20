@@ -19,9 +19,9 @@ my $obj = Data::Commons::Vote::Competition->new(
         ),
         'id' => 1,
         'jury_max_marking_number' => 5,
-        'jury_voting' => 1,
+        'jury_voting' => 0,
         'name' => 'Competition',
-        'public_voting' => 1,
+        'public_voting' => 0,
 );
 
 # Print out.
@@ -39,7 +39,7 @@ print 'Number of votes: '.$obj->number_of_votes."\n";
 # Name: Competition
 # Date from: 2022-07-10T00:00:00
 # Date to: 2022-07-20T00:00:00
-# Jury voting: 1
+# Jury voting: 0
 # Maximum number fo jury marking: 5
-# Public voting: 1
+# Public voting: 0
 # Number of votes: 0

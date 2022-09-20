@@ -22,6 +22,22 @@ has dt_images_loaded => (
 	is => 'ro',
 );
 
+has dt_jury_voting_from => (
+	is => 'ro',
+);
+
+has dt_jury_voting_to => (
+	is => 'ro',
+);
+
+has dt_public_voting_from => (
+	is => 'ro',
+);
+
+has dt_public_voting_to => (
+	is => 'ro',
+);
+
 has dt_to => (
 	is => 'ro',
 );
@@ -108,6 +124,18 @@ sub BUILD {
 	}
 	check_bool($self, 'jury_voting');
 
+	# Check jury voting date from.
+	if ($self->{'jury_voting'}) {
+		check_required($self, 'dt_jury_voting_from');
+	}
+	check_isa($self, 'dt_jury_voting_from', 'DateTime');
+
+	# Check jury voting date to.
+	if ($self->{'jury_voting'}) {
+		check_required($self, 'dt_jury_voting_to');
+	}
+	check_isa($self, 'dt_jury_voting_to', 'DateTime');
+
 	# Check logo.
 	check_length($self, 'logo', 255);
 
@@ -132,6 +160,18 @@ sub BUILD {
 		$self->{'public_voting'} = 0;
 	}
 	check_bool($self, 'public_voting');
+
+	# Check public voting date from.
+	if ($self->{'public_voting'}) {
+		check_required($self, 'dt_public_voting_from');
+	}
+	check_isa($self, 'dt_public_voting_from', 'DateTime');
+
+	# Check public voting date to.
+	if ($self->{'public_voting'}) {
+		check_required($self, 'dt_public_voting_to');
+	}
+	check_isa($self, 'dt_public_voting_to', 'DateTime');
 
 	# Check sections.
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
@@ -158,6 +198,10 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $obj = Data::Commons::Vote::Competition->new(%params);
  my $dt_from = $obj->dt_from;
  my $dt_images_loaded = $obj->dt_images_loaded;
+ my $dt_jury_voting_from = $obj->dt_jury_voting_from;
+ my $dt_jury_voting_to = $obj->dt_jury_voting_to;
+ my $dt_public_voting_from = $obj->dt_public_voting_from;
+ my $dt_public_voting_to = $obj->dt_public_voting_to;
  my $dt_to = $obj->dt_to;
  my $id = $obj->id;
  my $jury_max_marking_number = $obj->jury_max_marking_number;
@@ -193,6 +237,30 @@ It's required.
 Datetime of situation when images loaded to database.
 It is DateTime instance.
 It's optional.
+
+=item * C<dt_jury_voting_from>
+
+Jury voting date from.
+It is DateTime instance.
+It's required if jury_voting is enabled.
+
+=item * C<dt_jury_voting_to>
+
+Jury voting date to.
+It is DateTime instance.
+It's required if jury_voting is enabled.
+
+=item * C<dt_public_voting_from>
+
+Public voting date from.
+It is DateTime instance.
+It's required if public_voting is enabled.
+
+=item * C<dt_public_voting_to>
+
+Jury public date to.
+It is DateTime instance.
+It's required if public_voting is enabled.
 
 =item * C<dt_to>
 
@@ -283,6 +351,38 @@ Returns DateTime object.
  my $dt_images_loaded = $obj->dt_images_loaded;
 
 Get date time of situation when images were loaded.
+
+Returns DateTime object.
+
+=head2 C<dt_jury_voting_from>
+
+ my $dt_jury_voting_from = $obj->dt_jury_voting_from;
+
+Get begin date of jury voting.
+
+Returns DateTime object.
+
+=head2 C<dt_jury_voting_to>
+
+ my $dt_jury_voting_to = $obj->dt_jury_voting_to;
+
+Get end date of jury voting.
+
+Returns DateTime object.
+
+=head2 C<dt_public_voting_from>
+
+ my $dt_public_voting_from = $obj->dt_public_voting_from;
+
+Get begin date of public voting.
+
+Returns DateTime object.
+
+=head2 C<dt_public_voting_to>
+
+ my $dt_public_voting_to = $obj->dt_public_voting_to;
+
+Get end date of public voting.
 
 Returns DateTime object.
 
@@ -382,6 +482,26 @@ Returns reference to array with Data::Commons::Vote::Section instances.
          Parameter 'dt_images_loaded' must be a 'DateTime' object.
                  Value: %s
                  Reference: %s
+         Parameter 'dt_jury_voting_from' is required.
+         (In case of jury_voting enabled)
+         Parameter 'dt_jury_voting_from' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'dt_jury_voting_to' is required.
+         (In case of jury_voting enabled)
+         Parameter 'dt_jury_voting_to' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'dt_public_voting_from' is required.
+         (In case of public_voting enabled)
+         Parameter 'dt_public_voting_from' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
+         Parameter 'dt_public_voting_to' is required.
+         (In case of public_voting enabled)
+         Parameter 'dt_public_voting_to' must be a 'DateTime' object.
+                 Value: %s
+                 Reference: %s
          Parameter 'dt_to' is required.
          Parameter 'dt_to' must be a 'DateTime' object.
                  Value: %s
@@ -434,9 +554,9 @@ Returns reference to array with Data::Commons::Vote::Section instances.
          ),
          'id' => 1,
          'jury_max_marking_number' => 5,
-         'jury_voting' => 1,
+         'jury_voting' => 0,
          'name' => 'Competition',
-         'public_voting' => 1,
+         'public_voting' => 0,
  );
 
  # Print out.
@@ -454,9 +574,9 @@ Returns reference to array with Data::Commons::Vote::Section instances.
  # Name: Competition
  # Date from: 2022-07-10T00:00:00
  # Date to: 2022-07-20T00:00:00
- # Jury voting: 1
+ # Jury voting: 0
  # Maximum number fo jury marking: 5
- # Public voting: 1
+ # Public voting: 0
  # Number of votes: 0
 
 =head1 DEPENDENCIES
