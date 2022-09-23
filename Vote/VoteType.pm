@@ -4,9 +4,13 @@ use strict;
 use warnings;
 
 use Mo qw(build is);
-use Mo::utils qw(check_length check_number check_required);
+use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
+
+has created_by => (
+	is => 'ro',
+);
 
 has description => (
 	is => 'ro',
@@ -22,6 +26,10 @@ has type => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check created_by.
+	check_required($self, 'created_by');
+	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check description.
 	check_length($self, 'description', 255);
