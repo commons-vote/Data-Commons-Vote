@@ -2,14 +2,22 @@ use strict;
 use warnings;
 
 use Data::Commons::Vote::Competition;
+use Data::Commons::Vote::Person;
 use DateTime;
 use English;
 use Error::Pure::Utils qw(clean);
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
 use Test::NoWarnings;
+use Unicode::UTF8 qw(decode_utf8);
+
+# Common.
+my $creator = Data::Commons::Vote::Person->new(
+	'name' => decode_utf8('Michal Josef Špaček'),
+);
 
 # Test.
 my $obj = Data::Commons::Vote::Competition->new(
+	'created_by' => $creator,
 	'dt_from' => DateTime->new(
                  'day' => 14,
                  'month' => 7,
@@ -28,8 +36,29 @@ isa_ok($obj, 'Data::Commons::Vote::Competition');
 
 # Test.
 $obj = Data::Commons::Vote::Competition->new(
+	'created_by' => $creator,
 	'dt_from' => DateTime->new(
                  'day' => 14,
+                 'month' => 7,
+                 'year' => 2009,
+	),
+	'dt_jury_voting_from' => DateTime->new(
+                 'day' => 27,
+                 'month' => 7,
+                 'year' => 2009,
+	),
+	'dt_jury_voting_to' => DateTime->new(
+                 'day' => 31,
+                 'month' => 7,
+                 'year' => 2009,
+	),
+	'dt_public_voting_from' => DateTime->new(
+                 'day' => 27,
+                 'month' => 7,
+                 'year' => 2009,
+	),
+	'dt_public_voting_to' => DateTime->new(
+                 'day' => 31,
                  'month' => 7,
                  'year' => 2009,
 	),
@@ -49,6 +78,7 @@ isa_ok($obj, 'Data::Commons::Vote::Competition');
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_to' => DateTime->new(
 			 'day' => 26,
 			 'month' => 7,
@@ -65,6 +95,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => 'bad',
 		'dt_to' => DateTime->new(
 			 'day' => 26,
@@ -83,6 +114,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => DateTime->new(
 			 'day' => 26,
 			 'month' => 7,
@@ -100,6 +132,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => DateTime->new(
 			 'day' => 26,
 			 'month' => 7,
@@ -118,6 +151,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => DateTime->new(
 			 'day' => 14,
 			 'month' => 7,
@@ -141,6 +175,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => DateTime->new(
 			 'day' => 14,
 			 'month' => 7,
@@ -162,6 +197,7 @@ clean();
 # Test.
 eval {
 	Data::Commons::Vote::Competition->new(
+		'created_by' => $creator,
 		'dt_from' => DateTime->new(
 			 'day' => 14,
 			 'month' => 7,
@@ -179,4 +215,26 @@ eval {
 };
 is($EVAL_ERROR, "Parameter 'name' has length greater than '255'.\n",
 	"Parameter 'name' has length greater than '255'.");
+clean();
+
+# Test.
+eval {
+	Data::Commons::Vote::Competition->new(
+		'dt_from' => DateTime->new(
+			 'day' => 14,
+			 'month' => 7,
+			 'year' => 2009,
+		),
+		'dt_to' => DateTime->new(
+			 'day' => 26,
+			 'month' => 7,
+			 'year' => 2009,
+		),
+		'jury_voting' => 0,
+		'name' => 'Example competition',
+		'public_voting' => 0,
+	);
+};
+is($EVAL_ERROR, "Parameter 'created_by' is required.\n",
+	"Parameter 'created_by' is required.");
 clean();
