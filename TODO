@@ -4,7 +4,8 @@ TODO
 byt vice)
 3. In Section ins't information about competition in which is it.
 4. Add competition tests for jury and public voting dates.
-5.
+5. Inherit Data::Commons::Vote::Image to Data::Image.
+6.
 
 Applied
 =======
