@@ -8,11 +8,11 @@ use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
-has image_id => (
+has image => (
 	is => 'ro',
 );
 
-has person_id => (
+has person => (
 	is => 'ro',
 );
 
@@ -27,11 +27,13 @@ has vote_value => (
 sub BUILD {
 	my $self = shift;
 
-	# Check image_id.
-	check_number($self, 'image_id');
+	# Check image.
+	check_requires($self, 'image');
+	check_isa($self, 'image', 'Data::Commons::Vote::Image');
 
-	# Check person_id.
-	check_number($self, 'person_id');
+	# Check person.
+	check_requires($self, 'person');
+	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
 	# Check vote type.
 	check_required($self, 'vote_type');
