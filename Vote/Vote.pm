@@ -28,11 +28,11 @@ sub BUILD {
 	my $self = shift;
 
 	# Check image.
-	check_requires($self, 'image');
+	check_required($self, 'image');
 	check_isa($self, 'image', 'Data::Commons::Vote::Image');
 
 	# Check person.
-	check_requires($self, 'person');
+	check_required($self, 'person');
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
 	# Check vote type.
