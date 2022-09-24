@@ -8,6 +8,10 @@ use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
+has competition => (
+	is => 'ro',
+);
+
 has image => (
 	is => 'ro',
 );
@@ -26,6 +30,10 @@ has vote_value => (
 
 sub BUILD {
 	my $self = shift;
+
+	# Check competition.
+	check_required($self, 'competition');
+	check_isa($self, 'competition', 'Data::Commons::Vote::Competition');
 
 	# Check image.
 	check_required($self, 'image');
