@@ -17,14 +17,14 @@ my $creator = Data::Commons::Vote::Person->new(
 my $obj = Data::Commons::Vote::Competition->new(
 	'created_by' => $creator,
 	'dt_from' => DateTime->new(
-                 'day' => 14,
-                 'month' => 7,
-                 'year' => 2009,
+		'day' => 14,
+		'month' => 7,
+		'year' => 2009,
 	),
 	'dt_to' => DateTime->new(
-                 'day' => 26,
-                 'month' => 7,
-                 'year' => 2009,
+		'day' => 26,
+		'month' => 7,
+		'year' => 2009,
 	),
 	'jury_voting' => 0,
 	'name' => 'Example competition',
