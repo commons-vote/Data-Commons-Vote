@@ -5,7 +5,7 @@ use English;
 use Error::Pure::Utils qw(clean);
 use Data::Commons::Vote::Image;
 use Data::Commons::Vote::Person;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 5;
 use Test::NoWarnings;
 
 # Test.
@@ -35,4 +35,14 @@ eval {
 };
 is($EVAL_ERROR, "Parameter 'image' is required.\n",
 	"Parameter 'image' is required.");
+clean();
+
+# Test.
+eval {
+	Data::Commons::Vote::Image->new(
+		'image' => 'Michal from Czechia.jpg',
+	);
+};
+is($EVAL_ERROR, "Parameter 'uploader' is required.\n",
+	"Parameter 'uploader' is required.");
 clean();
