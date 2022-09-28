@@ -539,9 +539,13 @@ Returns reference to array with Data::Commons::Vote::Section instances.
  use warnings;
 
  use Data::Commons::Vote::Competition;
+ use Data::Commons::Vote::Person;
  use DateTime;
 
  my $obj = Data::Commons::Vote::Competition->new(
+         'created_by' => Data::Commons::Vote::Person->new(
+                 'name' => 'Michal Josef Spacek',
+         ),
          'dt_from' => DateTime->new(
                  'day' => 10,
                  'month' => 7,
