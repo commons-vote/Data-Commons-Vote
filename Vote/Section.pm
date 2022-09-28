@@ -53,6 +53,7 @@ sub BUILD {
 	check_array_object($self, 'categories', 'Data::Commons::Vote::Category', 'Category');
 
 	# Check competition.
+	check_required($self, 'competition');
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition', 'Competition');
 
 	# Check created_by.
