@@ -34,6 +34,22 @@ my $obj = Data::Commons::Vote::Competition->new(
 is(scalar @{$obj->sections}, 0, 'Get sections number (0 - default).');
 
 # Test.
+my $c = Data::Commons::Vote::Competition->new(
+	'created_by' => $creator,
+	'dt_from' => DateTime->new(
+		'day' => 14,
+		'month' => 7,
+		'year' => 2009,
+	),
+	'dt_to' => DateTime->new(
+		'day' => 26,
+		'month' => 7,
+		'year' => 2009,
+	),
+	'jury_voting' => 0,
+	'name' => 'Test competition',
+	'public_voting' => 0,
+);
 $obj = Data::Commons::Vote::Competition->new(
 	'created_by' => $creator,
 	'dt_from' => DateTime->new(
@@ -51,9 +67,11 @@ $obj = Data::Commons::Vote::Competition->new(
 	'public_voting' => 0,
 	'sections' => [
 		Data::Commons::Vote::Section->new(
+			'competition' => $c,
 			'name' => 'Nature',
 		),
 		Data::Commons::Vote::Section->new(
+			'competition' => $c,
 			'name' => 'People',
 		),
 	],
