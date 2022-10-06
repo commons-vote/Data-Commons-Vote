@@ -6,13 +6,11 @@ use warnings;
 use Mo qw(build is);
 use Mo::utils qw(check_isa check_length check_number check_required);
 
+extends 'Data::Commons::Image';
+
 our $VERSION = 0.01;
 
 has author => (
-	is => 'ro',
-);
-
-has comment => (
 	is => 'ro',
 );
 
@@ -29,15 +27,6 @@ has dt_uploaded => (
 );
 
 has height => (
-	is => 'ro',
-);
-
-has id => (
-	is => 'ro',
-);
-
-# Image from Commons.
-has image => (
 	is => 'ro',
 );
 
@@ -59,9 +48,6 @@ sub BUILD {
 	# Check author.
 	check_length($self, 'author', 255);
 
-	# Check comment.
-	check_length($self, 'comment', 1000);
-
 	# Check created_by.
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
@@ -73,13 +59,6 @@ sub BUILD {
 
 	# Check height.
 	check_number($self, 'height');
-
-	# Check id.
-	check_number($self, 'id');
-
-	# Check image.
-	check_required($self, 'image');
-	check_length($self, 'image', 255);
 
 	# Check size.
 	check_number($self, 'size');
