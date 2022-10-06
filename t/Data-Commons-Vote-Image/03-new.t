@@ -13,7 +13,7 @@ my $uploader = Data::Commons::Vote::Person->new(
 	'name' => 'Zuzana Zonova',
 );
 my $obj = Data::Commons::Vote::Image->new(
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 isa_ok($obj, 'Data::Commons::Vote::Image');
@@ -23,7 +23,7 @@ $obj = Data::Commons::Vote::Image->new(
 	'author' => 'Zuzana Zonova',
 	'comment' => 'Contemporary male portrait in black and white.',
 	'height' => 800,
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 	'width' => 600,
 );
@@ -33,14 +33,14 @@ isa_ok($obj, 'Data::Commons::Vote::Image');
 eval {
 	Data::Commons::Vote::Image->new;
 };
-is($EVAL_ERROR, "Parameter 'image' is required.\n",
-	"Parameter 'image' is required.");
+is($EVAL_ERROR, "Parameter 'commons_name' is required.\n",
+	"Parameter 'commons_name' is required.");
 clean();
 
 # Test.
 eval {
 	Data::Commons::Vote::Image->new(
-		'image' => 'Michal from Czechia.jpg',
+		'commons_name' => 'Michal from Czechia.jpg',
 	);
 };
 is($EVAL_ERROR, "Parameter 'uploader' is required.\n",

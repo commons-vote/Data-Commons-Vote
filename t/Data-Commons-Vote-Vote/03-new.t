@@ -47,7 +47,7 @@ my $competition = Data::Commons::Vote::Competition->new(
 	'public_voting' => 0,
 );
 my $image = Data::Commons::Vote::Image->new(
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 my $voter = Data::Commons::Vote::Person->new(

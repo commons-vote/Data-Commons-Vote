@@ -11,7 +11,7 @@ my $uploader = Data::Commons::Vote::Person->new(
 	'name' => 'Zuzana Zonova',
 );
 my $obj = Data::Commons::Vote::Image->new(
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 is($obj->comment, undef, 'Get comment (undef = default).');
@@ -20,7 +20,7 @@ is($obj->comment, undef, 'Get comment (undef = default).');
 $obj = Data::Commons::Vote::Image->new(
 	'author' => 'Zuzana Zonova',
 	'comment' => 'Contemporary male portrait in black and white.',
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 is($obj->comment, 'Contemporary male portrait in black and white.', 'Get comment.');

@@ -11,7 +11,7 @@ my $uploader = Data::Commons::Vote::Person->new(
 	'name' => 'Zuzana Zonova',
 );
 my $obj = Data::Commons::Vote::Image->new(
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 isa_ok($obj->uploader, 'Data::Commons::Vote::Person');

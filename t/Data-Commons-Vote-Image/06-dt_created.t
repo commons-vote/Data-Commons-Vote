@@ -12,7 +12,7 @@ my $uploader = Data::Commons::Vote::Person->new(
 	'name' => 'Zuzana Zonova',
 );
 my $obj = Data::Commons::Vote::Image->new(
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 is($obj->dt_created, undef, 'Get dt_created (undef = default).');
@@ -25,7 +25,7 @@ $obj = Data::Commons::Vote::Image->new(
 		'month' => 7,
 		'year' => 2022,
 	),
-	'image' => 'Michal from Czechia.jpg',
+	'commons_name' => 'Michal from Czechia.jpg',
 	'uploader' => $uploader,
 );
 is($obj->dt_created, '2022-07-14T00:00:00', 'Get dt_created (2022-07-14T00:00:00).');
