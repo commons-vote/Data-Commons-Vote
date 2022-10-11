@@ -4,8 +4,8 @@ TODO
 byt vice)
 3. In Section ins't information about competition in which is it.
 4. Add competition tests for jury and public voting dates.
-5. Inherit Data::Commons::Vote::Image to Data::Image.
-6.
+6. Test for dt_uploaded to Image.
+7.
 
 Applied
 =======
@@ -13,3 +13,6 @@ Applied
 id mean, that record is in database, but data object could exist before saving
 to database.
 OK [20211216] skim
+
+5. Inherit Data::Commons::Vote::Image to Data::Image.
+OK [20221011] skim
