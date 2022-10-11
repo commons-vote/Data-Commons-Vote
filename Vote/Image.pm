@@ -14,14 +14,6 @@ has created_by => (
 	is => 'ro',
 );
 
-has dt_created => (
-	is => 'ro',
-);
-
-has dt_uploaded => (
-	is => 'ro',
-);
-
 has uploader => (
 	is => 'ro',
 );
@@ -31,12 +23,6 @@ sub BUILD {
 
 	# Check created_by.
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
-
-	# Check date created.
-	check_isa($self, 'dt_created', 'DateTime');
-
-	# Check date uploaded.
-	check_isa($self, 'dt_uploaded', 'DateTime');
 
 	# Check uploader.
 	check_required($self, 'uploader');
