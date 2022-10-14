@@ -48,6 +48,10 @@ t/Data-Commons-Vote-Image/08-id.t
 t/Data-Commons-Vote-Image/09-image.t
 t/Data-Commons-Vote-Image/10-uploader.t
 t/Data-Commons-Vote-Image/11-width.t
+t/Data-Commons-Vote-Log/01-use.t
+t/Data-Commons-Vote-Log/02-version.t
+t/Data-Commons-Vote-LogType/01-use.t
+t/Data-Commons-Vote-LogType/02-version.t
 t/Data-Commons-Vote-Person/01-use.t
 t/Data-Commons-Vote-Person/02-version.t
 t/Data-Commons-Vote-Person/03-new.t
@@ -97,6 +101,8 @@ Vote/Category.pm
 Vote/Competition.pm
 Vote/HashType.pm
 Vote/Image.pm
+Vote/Log.pm
+Vote/LogType.pm
 Vote/Person.pm
 Vote/PersonLogin.pm
 Vote/PersonRole.pm
@@ -116,6 +122,10 @@ xt/Data-Commons-Vote-HashType/01-pod_coverage.t
 xt/Data-Commons-Vote-HashType/02-pod.t
 xt/Data-Commons-Vote-Image/01-pod_coverage.t
 xt/Data-Commons-Vote-Image/02-pod.t
+xt/Data-Commons-Vote-Log/01-pod_coverage.t
+xt/Data-Commons-Vote-Log/02-pod.t
+xt/Data-Commons-Vote-LogType/01-pod_coverage.t
+xt/Data-Commons-Vote-LogType/02-pod.t
 xt/Data-Commons-Vote-Person/01-pod_coverage.t
 xt/Data-Commons-Vote-Person/02-pod.t
 xt/Data-Commons-Vote-PersonLogin/01-pod_coverage.t
