@@ -12,6 +12,10 @@ has competition => (
 	is => 'ro',
 );
 
+has created_at => (
+	is => 'ro',
+);
+
 has created_by => (
 	is => 'ro',
 );
@@ -34,6 +38,9 @@ sub BUILD {
 	# Check competition.
 	check_required($self, 'competition');
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition');
+
+	# Check created_at.
+	check_isa($self, 'created_at', 'DateTime');
 
 	# Check created_by.
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
