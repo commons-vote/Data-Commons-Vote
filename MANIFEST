@@ -48,6 +48,15 @@ t/Data-Commons-Vote-Image/08-id.t
 t/Data-Commons-Vote-Image/09-image.t
 t/Data-Commons-Vote-Image/10-uploader.t
 t/Data-Commons-Vote-Image/11-width.t
+t/Data-Commons-Vote-License/01-use.t
+t/Data-Commons-Vote-License/02-version.t
+t/Data-Commons-Vote-License/03-new.t
+t/Data-Commons-Vote-License/04-created_at.t
+t/Data-Commons-Vote-License/05-created_by.t
+t/Data-Commons-Vote-License/06-id.t
+t/Data-Commons-Vote-License/07-qid.t
+t/Data-Commons-Vote-License/08-short_name.t
+t/Data-Commons-Vote-License/09-text.t
 t/Data-Commons-Vote-Log/01-use.t
 t/Data-Commons-Vote-Log/02-version.t
 t/Data-Commons-Vote-LogType/01-use.t
@@ -101,6 +110,7 @@ Vote/Category.pm
 Vote/Competition.pm
 Vote/HashType.pm
 Vote/Image.pm
+Vote/License.pm
 Vote/Log.pm
 Vote/LogType.pm
 Vote/Person.pm
@@ -122,6 +132,8 @@ xt/Data-Commons-Vote-HashType/01-pod_coverage.t
 xt/Data-Commons-Vote-HashType/02-pod.t
 xt/Data-Commons-Vote-Image/01-pod_coverage.t
 xt/Data-Commons-Vote-Image/02-pod.t
+xt/Data-Commons-Vote-License/01-pod_coverage.t
+xt/Data-Commons-Vote-License/02-pod.t
 xt/Data-Commons-Vote-Log/01-pod_coverage.t
 xt/Data-Commons-Vote-Log/02-pod.t
 xt/Data-Commons-Vote-LogType/01-pod_coverage.t
