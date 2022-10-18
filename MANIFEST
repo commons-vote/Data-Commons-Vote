@@ -35,6 +35,7 @@ t/Data-Commons-Vote-Competition/12-organizer.t
 t/Data-Commons-Vote-Competition/13-organizer_logo.t
 t/Data-Commons-Vote-Competition/14-public_voting.t
 t/Data-Commons-Vote-Competition/15-sections.t
+t/Data-Commons-Vote-Competition/16-wd_qid.t
 t/Data-Commons-Vote-HashType/01-use.t
 t/Data-Commons-Vote-HashType/02-version.t
 t/Data-Commons-Vote-Image/01-use.t

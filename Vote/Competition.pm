@@ -89,6 +89,10 @@ has sections => (
 	is => 'ro',
 );
 
+has wd_qid => (
+	is => 'ro',
+);
+
 sub BUILD {
 	my $self = shift;
 
@@ -213,6 +217,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $organizer_logo = $obj->organizer_logo;
  my $public_voting = $obj->public_voting;
  my $sections_ar = $obj->sections;
+ my $wd_qid = $obj->wd_qid;
 
 =head1 METHODS
 
@@ -335,6 +340,12 @@ List of competition sections.
 Item must be a Data::Commons::Vote::Section object.
 It's optional.
 Default value is [].
+
+=item * C<wd_qid>
+
+Wikidata QID of competition.
+It's optional.
+Default value is undef.
 
 =back
 
@@ -471,6 +482,14 @@ Returns bool.
 Get competition sections.
 
 Returns reference to array with Data::Commons::Vote::Section instances.
+
+=head2 C<wd_qid>
+
+ my $wd_qid = $obj->wd_qid;
+
+Get Wikidata QID for competition.
+
+Returns string.
 
 =head1 ERRORS
 
