@@ -62,7 +62,7 @@ sub BUILD {
 	# Check id.
 	check_number($self, 'id');
 
-	# Check name
+	# Check name.
 	check_required($self, 'name');
 	check_length($self, 'name', 255);
 
