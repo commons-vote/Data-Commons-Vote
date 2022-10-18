@@ -62,15 +62,15 @@ sub BUILD {
 	# Check id.
 	check_number($self, 'id');
 
-	# Check name.
-	check_required($self, 'name');
-	check_length($self, 'name', 255);
-
 	# Check images.
 	check_array_object($self, 'images', 'Data::Commons::Vote::Image', 'Image');
 
 	# Check logo.
 	check_length($self, 'logo', 255);
+
+	# Check name.
+	check_required($self, 'name');
+	check_length($self, 'name', 255);
 
 	# Check number.
 	check_number($self, 'number_of_votes');
