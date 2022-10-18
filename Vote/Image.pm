@@ -14,6 +14,10 @@ has created_by => (
 	is => 'ro',
 );
 
+has license_obj => (
+	is => 'ro',
+);
+
 has uploader => (
 	is => 'ro',
 );
@@ -27,6 +31,12 @@ sub BUILD {
 	# Check uploader.
 	check_required($self, 'uploader');
 	check_isa($self, 'uploader', 'Data::Commons::Vote::Person');
+
+	# Check license obj.
+	check_isa($self, 'license_obj', 'Data::Commons::Vote::License');
+	if (defined $self->{'license_obj'} && ! defined $self->{'license'}) {
+		$self->{'license'} = $self->{'license_obj'}->text;
+	}
 
 	return;
 }
