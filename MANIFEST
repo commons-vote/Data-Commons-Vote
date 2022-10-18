@@ -89,6 +89,10 @@ t/Data-Commons-Vote-SectionCategory/01-use.t
 t/Data-Commons-Vote-SectionCategory/02-version.t
 t/Data-Commons-Vote-SectionImage/01-use.t
 t/Data-Commons-Vote-SectionImage/02-version.t
+t/Data-Commons-Vote-Theme/01-use.t
+t/Data-Commons-Vote-Theme/02-version.t
+t/Data-Commons-Vote-ThemeImage/01-use.t
+t/Data-Commons-Vote-ThemeImage/02-version.t
 t/Data-Commons-Vote-ValidationType/01-use.t
 t/Data-Commons-Vote-ValidationType/02-version.t
 t/Data-Commons-Vote-ValidationType/03-new.t
@@ -122,6 +126,8 @@ Vote/Role.pm
 Vote/Section.pm
 Vote/SectionCategory.pm
 Vote/SectionImage.pm
+Vote/Theme.pm
+Vote/ThemeImage.pm
 Vote/ValidationType.pm
 Vote/Vote.pm
 Vote/VoteType.pm
@@ -157,6 +163,10 @@ xt/Data-Commons-Vote-SectionCategory/01-pod_coverage.t
 xt/Data-Commons-Vote-SectionCategory/02-pod.t
 xt/Data-Commons-Vote-SectionImage/01-pod_coverage.t
 xt/Data-Commons-Vote-SectionImage/02-pod.t
+xt/Data-Commons-Vote-Theme/01-pod_coverage.t
+xt/Data-Commons-Vote-Theme/02-pod.t
+xt/Data-Commons-Vote-ThemeImage/01-pod_coverage.t
+xt/Data-Commons-Vote-ThemeImage/02-pod.t
 xt/Data-Commons-Vote-User/01-pod_coverage.t
 xt/Data-Commons-Vote-User/02-pod.t
 xt/Data-Commons-Vote-UserLogin/01-pod_coverage.t
