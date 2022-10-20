@@ -29,7 +29,6 @@ sub BUILD {
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
 	# Check uploader.
-	check_required($self, 'uploader');
 	check_isa($self, 'uploader', 'Data::Commons::Vote::Person');
 
 	# Check license obj.
