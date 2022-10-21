@@ -200,6 +200,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  use Data::Commons::Vote::Competition;
 
  my $obj = Data::Commons::Vote::Competition->new(%params);
+ my $created_by = $obj->created_by;
  my $dt_from = $obj->dt_from;
  my $dt_images_loaded = $obj->dt_images_loaded;
  my $dt_jury_voting_from = $obj->dt_jury_voting_from;
@@ -230,6 +231,12 @@ Constructor.
 Returns instance of object.
 
 =over 8
+
+=item * C<created_by>
+
+Person, which created competition.
+It's L<Data::Commons::vote::Person> instance.
+It's required.
 
 =item * C<dt_from>
 
@@ -348,6 +355,14 @@ It's optional.
 Default value is undef.
 
 =back
+
+=head2 C<created_by>
+
+ my $created_by = $obj->created_by;
+
+Get person, which created competition.
+
+Returns L<Data::Commons::vote::Person> object.
 
 =head2 C<dt_to>
 
@@ -494,6 +509,10 @@ Returns string.
 =head1 ERRORS
 
  new():
+         Parameter 'created_by' is required.
+         Parameter 'created_by' must be a 'Data::Commons::Vote::Person' object.
+                 Value: %s
+                 Reference: %s
          Parameter 'dt_from' is required.
          Parameter 'dt_from' must be a 'DateTime' object.
                  Value: %s
