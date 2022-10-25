@@ -89,6 +89,11 @@ has sections => (
 	is => 'ro',
 );
 
+has validations => (
+	default => [],
+	is => 'ro',
+);
+
 has wd_qid => (
 	is => 'ro',
 );
@@ -180,6 +185,9 @@ sub BUILD {
 	# Check sections.
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
 
+	# Check validations.
+	check_array_object($self, 'validations', 'Data::Commons::Vote::CompetitionValidation', 'CompetitionValidation');
+
 	return;
 }
 
@@ -218,6 +226,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $organizer_logo = $obj->organizer_logo;
  my $public_voting = $obj->public_voting;
  my $sections_ar = $obj->sections;
+ my $validations_ar = $obj->validations;
  my $wd_qid = $obj->wd_qid;
 
 =head1 METHODS
