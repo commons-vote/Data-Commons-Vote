@@ -32,6 +32,7 @@ test_requires 'Error::Pure' => 0;
 test_requires 'File::Object' => 0;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
+test_requires 'Unicode::UTF8' => 0;
 tests_recursive;
 version '0.01';
 
