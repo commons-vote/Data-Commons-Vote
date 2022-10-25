@@ -101,9 +101,10 @@ t/Data-Commons-Vote-ValidationOption/02-version.t
 t/Data-Commons-Vote-ValidationType/01-use.t
 t/Data-Commons-Vote-ValidationType/02-version.t
 t/Data-Commons-Vote-ValidationType/03-new.t
-t/Data-Commons-Vote-ValidationType/04-description.t
-t/Data-Commons-Vote-ValidationType/05-id.t
-t/Data-Commons-Vote-ValidationType/06-type.t
+t/Data-Commons-Vote-ValidationType/04-created_by.t
+t/Data-Commons-Vote-ValidationType/05-description.t
+t/Data-Commons-Vote-ValidationType/06-id.t
+t/Data-Commons-Vote-ValidationType/07-type.t
 t/Data-Commons-Vote-Vote/01-use.t
 t/Data-Commons-Vote-Vote/02-version.t
 t/Data-Commons-Vote-Vote/03-new.t
