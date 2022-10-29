@@ -84,6 +84,11 @@ has public_voting => (
 	is => 'ro',
 );
 
+has person_roles => (
+	default => [],
+	is => 'ro',
+);
+
 has sections => (
 	default => [],
 	is => 'ro',
@@ -181,6 +186,9 @@ sub BUILD {
 		check_required($self, 'dt_public_voting_to');
 	}
 	check_isa($self, 'dt_public_voting_to', 'DateTime');
+
+	# Check person_roles.
+	check_array_object($self, 'person_roles', 'Data::Commons::Vote::PersonRole', 'PersonRole');
 
 	# Check sections.
 	check_array_object($self, 'sections', 'Data::Commons::Vote::Section', 'Section');
