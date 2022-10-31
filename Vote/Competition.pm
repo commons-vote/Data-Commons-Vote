@@ -99,6 +99,11 @@ has validations => (
 	is => 'ro',
 );
 
+has voting_types => (
+	default => [],
+	is => 'ro',
+);
+
 has wd_qid => (
 	is => 'ro',
 );
@@ -196,6 +201,9 @@ sub BUILD {
 	# Check validations.
 	check_array_object($self, 'validations', 'Data::Commons::Vote::CompetitionValidation', 'CompetitionValidation');
 
+	# Check voting types.
+	check_array_object($self, 'voting_types', 'Data::Commons::Vote::CompetitionVoting', 'CompetitionVoting');
+
 	return;
 }
 
@@ -235,6 +243,7 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
  my $public_voting = $obj->public_voting;
  my $sections_ar = $obj->sections;
  my $validations_ar = $obj->validations;
+ my $voting_types_ar = $obj->voting_types;
  my $wd_qid = $obj->wd_qid;
 
 =head1 METHODS
@@ -362,6 +371,13 @@ Default value is 0.
 
 List of competition sections.
 Item must be a Data::Commons::Vote::Section object.
+It's optional.
+Default value is [].
+
+=item * C<voting_types>
+
+List of competition voting types.
+Item must be a Data::Commons::Vote::CompetitionVoting object.
 It's optional.
 Default value is [].
 
@@ -515,6 +531,14 @@ Get competition sections.
 
 Returns reference to array with Data::Commons::Vote::Section instances.
 
+=head2 C<voting_types>
+
+ my $voting_types_ar = $obj->voting_types;
+
+Get competition voting types.
+
+Returns reference to array with L<Data::Commons::Vote::CompetitionVoting> instances.
+
 =head2 C<wd_qid>
 
  my $wd_qid = $obj->wd_qid;
@@ -526,6 +550,7 @@ Returns string.
 =head1 ERRORS
 
  new():
+         CompetitionVoting isn't 'Data::Commons::Vote::CompetitionVoting' object.
          Parameter 'created_by' is required.
          Parameter 'created_by' must be a 'Data::Commons::Vote::Person' object.
                  Value: %s
@@ -584,6 +609,7 @@ Returns string.
          Parameter 'public_voting' must be a bool (0/1).
                  Value: %s
          Parameter 'sections' must be a array.
+         Parameter 'voting_types' must be a array.
          Section isn't 'Data::Commons::Vote::Section' object.
 
 =head1 EXAMPLE
