@@ -1,4 +1,4 @@
-package Data::Commons::Vote::VoteType;
+package Data::Commons::Vote::VotingType;
 
 use strict;
 use warnings;
@@ -39,7 +39,7 @@ sub BUILD {
 
 	# Check type.
 	check_required($self, 'type');
-	check_length($self, 'type', 30);
+	check_length($self, 'type', 50);
 
 	return;
 }

@@ -5,7 +5,7 @@ use Data::Commons::Vote::Competition;
 use Data::Commons::Vote::Image;
 use Data::Commons::Vote::Person;
 use Data::Commons::Vote::Vote;
-use Data::Commons::Vote::VoteType;
+use Data::Commons::Vote::VotingType;
 use DateTime;
 use English;
 use Error::Pure::Utils qw(clean);
@@ -53,7 +53,7 @@ my $image = Data::Commons::Vote::Image->new(
 my $voter = Data::Commons::Vote::Person->new(
 	'name' => decode_utf8('Jan Novák'),
 );
-my $vote_type = Data::Commons::Vote::VoteType->new(
+my $voting_type = Data::Commons::Vote::VotingType->new(
 	'created_by' => $creator,
 	'type' => 'jury_marking',
 );
@@ -63,7 +63,7 @@ my $obj = Data::Commons::Vote::Vote->new(
 	'competition' => $competition,
 	'image' => $image,
 	'person' => $voter,
-	'vote_type' => $vote_type,
+	'voting_type' => $voting_type,
 	'vote_value' => 1,
 );
 isa_ok($obj, 'Data::Commons::Vote::Vote');
@@ -73,7 +73,7 @@ eval {
 	Data::Commons::Vote::Vote->new(
 		'image' => $image,
 		'person' => $voter,
-		'vote_type' => $vote_type,
+		'voting_type' => $voting_type,
 		'vote_value' => 1,
 	);
 };
@@ -86,7 +86,7 @@ eval {
 	Data::Commons::Vote::Vote->new(
 		'competition' => $competition,
 		'person' => $voter,
-		'vote_type' => $vote_type,
+		'voting_type' => $voting_type,
 		'vote_value' => 1,
 	);
 };
@@ -99,7 +99,7 @@ eval {
 	Data::Commons::Vote::Vote->new(
 		'competition' => $competition,
 		'image' => $image,
-		'vote_type' => $vote_type,
+		'voting_type' => $voting_type,
 		'vote_value' => 1,
 	);
 };
@@ -116,6 +116,6 @@ eval {
 		'vote_value' => 1,
 	);
 };
-is($EVAL_ERROR, "Parameter 'vote_type' is required.\n",
-	"Parameter 'vote_type' is required.");
+is($EVAL_ERROR, "Parameter 'voting_type' is required.\n",
+	"Parameter 'voting_type' is required.");
 clean();

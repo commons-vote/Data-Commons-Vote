@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Data::Commons::Vote::Person;
-use Data::Commons::Vote::VoteType;
+use Data::Commons::Vote::VotingType;
 use Test::More 'tests' => 2;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
@@ -13,7 +13,7 @@ my $creator = Data::Commons::Vote::Person->new(
 );
 
 # Test.
-my $obj = Data::Commons::Vote::VoteType->new(
+my $obj = Data::Commons::Vote::VotingType->new(
 	'created_by' => $creator,
 	'type' => 'jury_marking',
 );

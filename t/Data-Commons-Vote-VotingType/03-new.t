@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Data::Commons::Vote::Person;
-use Data::Commons::Vote::VoteType;
+use Data::Commons::Vote::VotingType;
 use English;
 use Error::Pure::Utils qw(clean);
 use Test::More 'tests' => 8;
@@ -15,24 +15,24 @@ my $creator = Data::Commons::Vote::Person->new(
 );
 
 # Test.
-my $obj = Data::Commons::Vote::VoteType->new(
+my $obj = Data::Commons::Vote::VotingType->new(
 	'created_by' => $creator,
 	'type' => 'jury_marking',
 );
-isa_ok($obj, 'Data::Commons::Vote::VoteType');
+isa_ok($obj, 'Data::Commons::Vote::VotingType');
 
 # Test.
-$obj = Data::Commons::Vote::VoteType->new(
+$obj = Data::Commons::Vote::VotingType->new(
 	'created_by' => $creator,
 	'description' => 'Voting type for jury marking.',
 	'id' => 1,
 	'type' => 'jury_marking',
 );
-isa_ok($obj, 'Data::Commons::Vote::VoteType');
+isa_ok($obj, 'Data::Commons::Vote::VotingType');
 
 # Test.
 eval {
-	Data::Commons::Vote::VoteType->new(
+	Data::Commons::Vote::VotingType->new(
 		'created_by' => $creator,
 	);
 };
@@ -42,18 +42,18 @@ clean();
 
 # Test.
 eval {
-	Data::Commons::Vote::VoteType->new(
+	Data::Commons::Vote::VotingType->new(
 		'created_by' => $creator,
-		'type' => 'a' x 31,
+		'type' => 'a' x 51,
 	);
 };
-is($EVAL_ERROR, "Parameter 'type' has length greater than '30'.\n",
-	"Parameter 'type' has length greater than '30'.");
+is($EVAL_ERROR, "Parameter 'type' has length greater than '50'.\n",
+	"Parameter 'type' has length greater than '50'.");
 clean();
 
 # Test.
 eval {
-	Data::Commons::Vote::VoteType->new(
+	Data::Commons::Vote::VotingType->new(
 		'created_by' => $creator,
 		'id' => 'bad',
 		'type' => 'jury_marking',
@@ -65,7 +65,7 @@ clean();
 
 # Test.
 eval {
-	Data::Commons::Vote::VoteType->new(
+	Data::Commons::Vote::VotingType->new(
 		'created_by' => $creator,
 		'description' => 'a' x 300,
 		'type' => 'jury_marking',
@@ -77,7 +77,7 @@ clean();
 
 # Test.
 eval {
-	Data::Commons::Vote::VoteType->new(
+	Data::Commons::Vote::VotingType->new(
 		'type' => 'jury_marking',
 	);
 };

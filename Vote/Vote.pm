@@ -20,7 +20,7 @@ has person => (
 	is => 'ro',
 );
 
-has vote_type => (
+has voting_type => (
 	is => 'ro',
 );
 
@@ -43,9 +43,9 @@ sub BUILD {
 	check_required($self, 'person');
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
-	# Check vote type.
-	check_required($self, 'vote_type');
-	check_isa($self, 'vote_type', 'Data::Commons::Vote::VoteType');
+	# Check voting type.
+	check_required($self, 'voting_type');
+	check_isa($self, 'voting_type', 'Data::Commons::Vote::VotingType');
 
 	# Check vote value.
 	check_number($self, 'vote_value');

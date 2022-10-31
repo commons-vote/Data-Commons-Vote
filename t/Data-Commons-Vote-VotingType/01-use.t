@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('Data::Commons::Vote::VoteType');
+	use_ok('Data::Commons::Vote::VotingType');
 }
 
 # Test.
-require_ok('Data::Commons::Vote::VoteType');
+require_ok('Data::Commons::Vote::VotingType');
