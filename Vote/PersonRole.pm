@@ -32,6 +32,7 @@ sub BUILD {
 	my $self = shift;
 
 	# Check competition.
+	check_required($self, 'competition');
 	check_isa($self, 'competition', 'Data::Commons::Vote::Competition');
 
 	# Check created_by.
@@ -41,10 +42,12 @@ sub BUILD {
 	# Check id.
 	check_number($self, 'id');
 
-	# Check user.
+	# Check person.
+	check_required($self, 'person');
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
 	# Check role.
+	check_required($self, 'role');
 	check_isa($self, 'role', 'Data::Commons::Vote::Role');
 
 	return;
