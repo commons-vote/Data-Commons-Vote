@@ -14,44 +14,11 @@ has created_by => (
 	is => 'ro',
 );
 
-has dt_from => (
-	is => 'ro',
-);
-
 has dt_images_loaded => (
 	is => 'ro',
 );
 
-has dt_jury_voting_from => (
-	is => 'ro',
-);
-
-has dt_jury_voting_to => (
-	is => 'ro',
-);
-
-has dt_public_voting_from => (
-	is => 'ro',
-);
-
-has dt_public_voting_to => (
-	is => 'ro',
-);
-
-has dt_to => (
-	is => 'ro',
-);
-
 has id => (
-	is => 'ro',
-);
-
-has jury_max_marking_number => (
-	is => 'ro',
-	default => 5,
-);
-
-has jury_voting => (
 	is => 'ro',
 );
 
@@ -63,11 +30,6 @@ has name => (
 	is => 'ro',
 );
 
-has number_of_votes => (
-	is => 'ro',
-	default => 0,
-);
-
 has organizer => (
 	is => 'ro',
 );
@@ -77,10 +39,6 @@ has organizer_logo => (
 );
 
 has person_roles => (
-	is => 'ro',
-);
-
-has public_voting => (
 	is => 'ro',
 );
 
@@ -115,45 +73,11 @@ sub BUILD {
 	check_required($self, 'created_by');
 	check_isa($self, 'created_by', 'Data::Commons::Vote::Person');
 
-	# Check dt_from
-	check_required($self, 'dt_from');
-	check_isa($self, 'dt_from', 'DateTime');
-
 	# Check dt_images_loaded.
 	check_isa($self, 'dt_images_loaded', 'DateTime');
 
-	# Check dt_to
-	check_required($self, 'dt_to');
-	check_isa($self, 'dt_to', 'DateTime');
-
 	# Check id.
 	check_number($self, 'id');
-
-	# Check maximal number for jury marking.
-	check_number($self, 'jury_max_marking_number');
-	if (defined $self->{'jury_max_marking_number'}
-		&& $self->{'jury_max_marking_number'} < 1) {
-
-		err "Parameter 'jury_max_marking_number' must be a positive number.";
-	}
-
-	# Check jury voting.
-	if (! defined $self->{'jury_voting'}) {
-		$self->{'jury_voting'} = 0;
-	}
-	check_bool($self, 'jury_voting');
-
-	# Check jury voting date from.
-	if ($self->{'jury_voting'}) {
-		check_required($self, 'dt_jury_voting_from');
-	}
-	check_isa($self, 'dt_jury_voting_from', 'DateTime');
-
-	# Check jury voting date to.
-	if ($self->{'jury_voting'}) {
-		check_required($self, 'dt_jury_voting_to');
-	}
-	check_isa($self, 'dt_jury_voting_to', 'DateTime');
 
 	# Check logo.
 	check_length($self, 'logo', 255);
@@ -161,9 +85,6 @@ sub BUILD {
 	# Check name
 	check_required($self, 'name');
 	check_length($self, 'name', 255);
-
-	# Check number of votes.
-	check_number($self, 'number_of_votes');
 
 	# Check organizer.
 	check_length($self, 'organizer', 255);
@@ -173,24 +94,6 @@ sub BUILD {
 
 	# Check person roles.
 	check_array_object($self, 'person_roles', 'Data::Commons::Vote::PersonRole', 'PersonRole');
-
-	# Check public voting flag.
-	if (! defined $self->{'public_voting'}) {
-		$self->{'public_voting'} = 0;
-	}
-	check_bool($self, 'public_voting');
-
-	# Check public voting date from.
-	if ($self->{'public_voting'}) {
-		check_required($self, 'dt_public_voting_from');
-	}
-	check_isa($self, 'dt_public_voting_from', 'DateTime');
-
-	# Check public voting date to.
-	if ($self->{'public_voting'}) {
-		check_required($self, 'dt_public_voting_to');
-	}
-	check_isa($self, 'dt_public_voting_to', 'DateTime');
 
 	# Check person_roles.
 	check_array_object($self, 'person_roles', 'Data::Commons::Vote::PersonRole', 'PersonRole');
@@ -225,22 +128,12 @@ Data::Commons::Vote::Competition - Data object for commons.vote competition.
 
  my $obj = Data::Commons::Vote::Competition->new(%params);
  my $created_by = $obj->created_by;
- my $dt_from = $obj->dt_from;
  my $dt_images_loaded = $obj->dt_images_loaded;
- my $dt_jury_voting_from = $obj->dt_jury_voting_from;
- my $dt_jury_voting_to = $obj->dt_jury_voting_to;
- my $dt_public_voting_from = $obj->dt_public_voting_from;
- my $dt_public_voting_to = $obj->dt_public_voting_to;
- my $dt_to = $obj->dt_to;
  my $id = $obj->id;
- my $jury_max_marking_number = $obj->jury_max_marking_number;
- my $jury_voting = $obj->jury_voting;
  my $logo = $obj->logo;
  my $name = $obj->name;
- my $number_of_votes = $obj->number_of_votes;
  my $organizer = $obj->organizer;
  my $organizer_logo = $obj->organizer_logo;
- my $public_voting = $obj->public_voting;
  my $sections_ar = $obj->sections;
  my $validations_ar = $obj->validations;
  my $voting_types_ar = $obj->voting_types;
@@ -264,47 +157,11 @@ Person, which created competition.
 It's L<Data::Commons::vote::Person> instance.
 It's required.
 
-=item * C<dt_from>
-
-Competition date from.
-It is DateTime instance.
-It's required.
-
 =item * C<dt_images_loaded>
 
 Datetime of situation when images loaded to database.
 It is DateTime instance.
 It's optional.
-
-=item * C<dt_jury_voting_from>
-
-Jury voting date from.
-It is DateTime instance.
-It's required if jury_voting is enabled.
-
-=item * C<dt_jury_voting_to>
-
-Jury voting date to.
-It is DateTime instance.
-It's required if jury_voting is enabled.
-
-=item * C<dt_public_voting_from>
-
-Public voting date from.
-It is DateTime instance.
-It's required if public_voting is enabled.
-
-=item * C<dt_public_voting_to>
-
-Jury public date to.
-It is DateTime instance.
-It's required if public_voting is enabled.
-
-=item * C<dt_to>
-
-Competition date to.
-It is DateTime instance.
-It's required.
 
 =item * C<id>
 
@@ -312,19 +169,6 @@ Id of competition.
 It's number.
 It's optional.
 Default value is undef.
-
-=item * C<jury_max_marking_number>
-
-Maximal number for jury marking.
-It's positive number.
-It's optional.
-Default value is undef.
-
-=item * C<jury_voting>
-
-Jury voting flag.
-It's bool.
-Default value is 0.
 
 =item * C<logo>
 
@@ -340,13 +184,6 @@ Name of competition.
 Length of name is 255.
 It's required.
 
-=item * C<number_of_votes>
-
-Number of votes in competition.
-It's number.
-It's optional.
-Default value is undef.
-
 =item * C<organizer>
 
 Organizer name.
@@ -360,12 +197,6 @@ Organizer logo.
 Length of logo file is 255.
 It's optional.
 Default value is undef.
-
-=item * C<public_voting>
-
-Public voting flag.
-It's bool.
-Default value is 0.
 
 =item * C<sections>
 
@@ -397,59 +228,11 @@ Get person, which created competition.
 
 Returns L<Data::Commons::vote::Person> object.
 
-=head2 C<dt_to>
-
- my $dt_from = $obj->dt_from;
-
-Get begin date of competition.
-
-Returns DateTime object.
-
 =head2 C<dt_images_loaded>
 
  my $dt_images_loaded = $obj->dt_images_loaded;
 
 Get date time of situation when images were loaded.
-
-Returns DateTime object.
-
-=head2 C<dt_jury_voting_from>
-
- my $dt_jury_voting_from = $obj->dt_jury_voting_from;
-
-Get begin date of jury voting.
-
-Returns DateTime object.
-
-=head2 C<dt_jury_voting_to>
-
- my $dt_jury_voting_to = $obj->dt_jury_voting_to;
-
-Get end date of jury voting.
-
-Returns DateTime object.
-
-=head2 C<dt_public_voting_from>
-
- my $dt_public_voting_from = $obj->dt_public_voting_from;
-
-Get begin date of public voting.
-
-Returns DateTime object.
-
-=head2 C<dt_public_voting_to>
-
- my $dt_public_voting_to = $obj->dt_public_voting_to;
-
-Get end date of public voting.
-
-Returns DateTime object.
-
-=head2 C<dt_to>
-
- my $dt_to = $obj->dt_to;
-
-Get end date of competition.
 
 Returns DateTime object.
 
@@ -460,22 +243,6 @@ Returns DateTime object.
 Get competition id.
 
 Returns number.
-
-=head2 C<jury_max_marking_number>
-
- my $jury_max_marking_number = $obj->jury_max_marking_number;
-
-Get maximal number for jury marking.
-
-Returns number.
-
-=head2 C<jury_voting>
-
- my $jury_voting = $obj->jury_voting;
-
-Get jury voting flag.
-
-Returns bool.
 
 =head2 C<logo>
 
@@ -493,14 +260,6 @@ Get competition name.
 
 Returns string.
 
-=head2 C<number_of_votes>
-
- my $number_of_votes = $obj->number_of_votes;
-
-Get number of votes.
-
-Returns number.
-
 =head2 C<organizer>
 
  my $organizer = $obj->organizer;
@@ -514,14 +273,6 @@ Returns string.
  my $organizer_logo = $obj->organizer_logo;
 
 Get organizer logo file name in Wikimedia Commons.
-
-=head2 C<public_voting>
-
- my $public_voting = $obj->public_voting;
-
-Get public voting flag.
-
-Returns bool.
 
 =head2 C<sections>
 
@@ -555,58 +306,19 @@ Returns string.
          Parameter 'created_by' must be a 'Data::Commons::Vote::Person' object.
                  Value: %s
                  Reference: %s
-         Parameter 'dt_from' is required.
-         Parameter 'dt_from' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
          Parameter 'dt_images_loaded' must be a 'DateTime' object.
                  Value: %s
                  Reference: %s
-         Parameter 'dt_jury_voting_from' is required.
-         (In case of jury_voting enabled)
-         Parameter 'dt_jury_voting_from' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
-         Parameter 'dt_jury_voting_to' is required.
-         (In case of jury_voting enabled)
-         Parameter 'dt_jury_voting_to' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
-         Parameter 'dt_public_voting_from' is required.
-         (In case of public_voting enabled)
-         Parameter 'dt_public_voting_from' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
-         Parameter 'dt_public_voting_to' is required.
-         (In case of public_voting enabled)
-         Parameter 'dt_public_voting_to' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
-         Parameter 'dt_to' is required.
-         Parameter 'dt_to' must be a 'DateTime' object.
-                 Value: %s
-                 Reference: %s
          Parameter 'id' must a number.
-                 Value: %s
-         Parameter 'jury_max_marking_number' must a number.
-                 Value: %s
-         Parameter 'jury_max_marking_number' must be a positive number.
-         Parameter 'jury_voting' is required.
-         Parameter 'jury_voting' must be a bool (0/1).
                  Value: %s
          Parameter 'logo' has length greater than '255'.
                  Value: %s
          Parameter 'name' is required.
          Parameter 'name' has length greater than '255'.
                  Value: %s
-         Parameter 'number_of_votes' must a number.
-                 Value: %s
          Parameter 'organizer' has length greater than '255'.
                  Value: %s
          Parameter 'organizer_logo' has length greater than '255'.
-                 Value: %s
-         Parameter 'public_voting' is required.
-         Parameter 'public_voting' must be a bool (0/1).
                  Value: %s
          Parameter 'sections' must be a array.
          Parameter 'voting_types' must be a array.
@@ -627,42 +339,17 @@ Returns string.
          'created_by' => Data::Commons::Vote::Person->new(
                  'name' => 'Michal Josef Spacek',
          ),
-         'dt_from' => DateTime->new(
-                 'day' => 10,
-                 'month' => 7,
-                 'year' => 2022,
-         ),
-         'dt_to' => DateTime->new(
-                 'day' => 20,
-                 'month' => 7,
-                 'year' => 2022,
-         ),
          'id' => 1,
-         'jury_max_marking_number' => 5,
-         'jury_voting' => 0,
          'name' => 'Competition',
-         'public_voting' => 0,
  );
 
  # Print out.
  print 'Id: '.$obj->id."\n";
  print 'Name: '.$obj->name."\n";
- print 'Date from: '.$obj->dt_from."\n";
- print 'Date to: '.$obj->dt_to."\n";
- print 'Jury voting: '.$obj->jury_voting."\n";
- print 'Maximum number fo jury marking: '.$obj->jury_max_marking_number."\n";
- print 'Public voting: '.$obj->public_voting."\n";
- print 'Number of votes: '.$obj->number_of_votes."\n";
 
  # Output:
  # Id: 1
  # Name: Competition
- # Date from: 2022-07-10T00:00:00
- # Date to: 2022-07-20T00:00:00
- # Jury voting: 0
- # Maximum number fo jury marking: 5
- # Public voting: 0
- # Number of votes: 0
 
 =head1 DEPENDENCIES
 
