@@ -16,38 +16,14 @@ my $creator = Data::Commons::Vote::Person->new(
 # Test.
 my $obj = Data::Commons::Vote::Competition->new(
 	'created_by' => $creator,
-	'dt_from' => DateTime->new(
-		'day' => 14,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'dt_to' => DateTime->new(
-		'day' => 26,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'jury_voting' => 0,
 	'name' => 'Example competition',
-	'public_voting' => 0,
 );
-is($obj->id, undef, 'Get id (undef - default).');
+is($obj->organizer, undef, 'Get name of organizer (undef - default).');
 
 # Test.
 $obj = Data::Commons::Vote::Competition->new(
 	'created_by' => $creator,
-	'dt_from' => DateTime->new(
-		'day' => 14,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'dt_to' => DateTime->new(
-		'day' => 26,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'id' => 1,
-	'jury_voting' => 0,
 	'name' => 'Example competition',
-	'public_voting' => 0,
+	'organizer' => 'WM Czech Republic',
 );
-is($obj->id, 1, 'Get id (1).');
+is($obj->organizer, 'WM Czech Republic', 'Get name of organizer (WM Czech Republic).');

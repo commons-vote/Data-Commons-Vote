@@ -2,9 +2,11 @@ use strict;
 use warnings;
 
 use Data::Commons::Vote::Competition;
+use Data::Commons::Vote::CompetitionVoting;
 use Data::Commons::Vote::Person;
+use Data::Commons::Vote::VotingType;
 use DateTime;
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 2;
 use Test::NoWarnings;
 use Unicode::UTF8 qw(decode_utf8);
 
@@ -12,9 +14,19 @@ use Unicode::UTF8 qw(decode_utf8);
 my $creator = Data::Commons::Vote::Person->new(
 	'name' => decode_utf8('Michal Josef Špaček'),
 );
+my $competition = Data::Commons::Vote::Competition->new(
+	'created_by' => $creator,
+	'name' => 'Example competition',
+);
+my $voting_type = Data::Commons::Vote::VotingType->new(
+	'created_by' => $creator,
+	'description' => 'Anonymous voting.',
+	'type' => 'anonymous_voting',
+);
 
 # Test.
-my $obj = Data::Commons::Vote::Competition->new(
+my $obj = Data::Commons::Vote::CompetitionVoting->new(
+	'competition' => $competition,
 	'created_by' => $creator,
 	'dt_from' => DateTime->new(
 		'day' => 14,
@@ -26,28 +38,7 @@ my $obj = Data::Commons::Vote::Competition->new(
 		'month' => 7,
 		'year' => 2009,
 	),
-	'jury_voting' => 0,
 	'name' => 'Example competition',
-	'public_voting' => 0,
+	'voting_type' => $voting_type,
 );
-is($obj->logo, undef, 'Get logo (undef - default).');
-
-# Test.
-$obj = Data::Commons::Vote::Competition->new(
-	'created_by' => $creator,
-	'dt_from' => DateTime->new(
-		'day' => 14,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'dt_to' => DateTime->new(
-		'day' => 26,
-		'month' => 7,
-		'year' => 2009,
-	),
-	'jury_voting' => 0,
-	'logo' => 'Logo.png',
-	'name' => 'Example competition',
-	'public_voting' => 0,
-);
-is($obj->logo, 'Logo.png', 'Get logo (Logo.png).');
+is($obj->created_by->name, decode_utf8('Michal Josef Špaček'), 'Get created_by (Michal Josef Špaček).');
