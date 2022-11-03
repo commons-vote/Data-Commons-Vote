@@ -29,6 +29,10 @@ has validation_type => {
 	is => 'ro',
 };
 
+has section => {
+	is => 'ro',
+};
+
 sub BUILD {
 	my $self = shift;
 
@@ -47,6 +51,9 @@ sub BUILD {
 	# Check validation_type.
 	check_required($self, 'validation_type');
 	check_isa($self, 'validation_type', 'Data::Commons::Vote::ValidationType', 'ValidationType');
+
+	# Check section.
+	check_isa($self, 'section', 'Data::Commons::Vote::Section', 'Section');
 
 	return;
 }
