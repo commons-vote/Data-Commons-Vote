@@ -8,7 +8,7 @@ use Mo::utils qw(check_isa check_length check_number check_required);
 
 our $VERSION = 0.01;
 
-has competition => (
+has competition_voting => (
 	is => 'ro',
 );
 
@@ -20,10 +20,6 @@ has person => (
 	is => 'ro',
 );
 
-has voting_type => (
-	is => 'ro',
-);
-
 has vote_value => (
 	is => 'ro',
 );
@@ -32,23 +28,15 @@ sub BUILD {
 	my $self = shift;
 
 	# Check competition.
-	check_required($self, 'competition');
-	check_isa($self, 'competition', 'Data::Commons::Vote::Competition');
+	check_required($self, 'competition_voting');
+	check_isa($self, 'competition', 'Data::Commons::Vote::CompetitionVoting');
 
 	# Check image.
 	check_required($self, 'image');
 	check_isa($self, 'image', 'Data::Commons::Vote::Image');
 
 	# Check person.
-	check_required($self, 'person');
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');
-
-	# Check voting type.
-	check_required($self, 'voting_type');
-	check_isa($self, 'voting_type', 'Data::Commons::Vote::VotingType');
-
-	# Check vote value.
-	check_number($self, 'vote_value');
 
 	return;
 }
