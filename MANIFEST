@@ -108,6 +108,8 @@ t/Data-Commons-Vote-ValidationType/07-type.t
 t/Data-Commons-Vote-Vote/01-use.t
 t/Data-Commons-Vote-Vote/02-version.t
 t/Data-Commons-Vote-Vote/03-new.t
+t/Data-Commons-Vote-VoteStats/01-use.t
+t/Data-Commons-Vote-VoteStats/02-version.t
 t/Data-Commons-Vote-VotingType/01-use.t
 t/Data-Commons-Vote-VotingType/02-version.t
 t/Data-Commons-Vote-VotingType/03-new.t
@@ -140,6 +142,7 @@ Vote/ValidationBad.pm
 Vote/ValidationOption.pm
 Vote/ValidationType.pm
 Vote/Vote.pm
+Vote/VoteStats.pm
 Vote/VotingType.pm
 xt/Data-Commons-Vote-Category/01-pod_coverage.t
 xt/Data-Commons-Vote-Category/02-pod.t
@@ -193,6 +196,8 @@ xt/Data-Commons-Vote-ValidationType/01-pod_coverage.t
 xt/Data-Commons-Vote-ValidationType/02-pod.t
 xt/Data-Commons-Vote-Vote/01-pod_coverage.t
 xt/Data-Commons-Vote-Vote/02-pod.t
+xt/Data-Commons-Vote-VoteStats/01-pod_coverage.t
+xt/Data-Commons-Vote-VoteStats/02-pod.t
 xt/Data-Commons-Vote-VotingType/01-pod_coverage.t
 xt/Data-Commons-Vote-VotingType/02-pod.t
 xt/Data-Commons-Vote/01-pod_coverage.t
