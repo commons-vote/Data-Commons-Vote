@@ -20,6 +20,10 @@ has vote_count => (
 	is => 'ro',
 );
 
+has vote_sum => (
+	is => 'ro',
+);
+
 sub BUILD {
 	my $self = shift;
 
@@ -33,6 +37,9 @@ sub BUILD {
 
 	# Check vote_count.
 	check_number($self, 'vote_count');
+
+	# Check vote_sum.
+	check_number($self, 'vote_sum');
 
 	return;
 }
