@@ -154,7 +154,7 @@ Returns instance of object.
 =item * C<created_by>
 
 Person, which created competition.
-It's L<Data::Commons::vote::Person> instance.
+It's L<Data::Commons::Vote::Person> instance.
 It's required.
 
 =item * C<dt_images_loaded>
