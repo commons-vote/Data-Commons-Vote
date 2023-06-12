@@ -29,7 +29,7 @@ sub BUILD {
 
 	# Check competition.
 	check_required($self, 'competition_voting');
-	check_isa($self, 'competition', 'Data::Commons::Vote::CompetitionVoting');
+	check_isa($self, 'competition_voting', 'Data::Commons::Vote::CompetitionVoting');
 
 	# Check image.
 	check_required($self, 'image');
