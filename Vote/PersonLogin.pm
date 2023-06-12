@@ -31,7 +31,7 @@ sub BUILD {
 	check_isa($self, 'person', 'Data::Commons::Vote::Person');
 
 	# Check hash type.
-	check_isa($self, 'hash_type', 'Data::Commons::Vote::HashType');
+	check_isa($self, 'hash_type', 'Data::HashType');
 
 	return;
 }

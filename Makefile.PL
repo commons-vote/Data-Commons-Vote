@@ -19,6 +19,7 @@ perl_version 5.008;
 readme_from 'Vote.pm';
 recursive_author_tests('xt');
 requires 'Data::Commons::Image' => 0;
+requires 'Data::HashType' => 0;
 requires 'English' => 0;
 requires 'Error::Pure' => 0;
 requires 'List::Util' => 0;

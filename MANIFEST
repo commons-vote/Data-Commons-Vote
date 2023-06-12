@@ -39,8 +39,6 @@ t/Data-Commons-Vote-CompetitionVoting/01-use.t
 t/Data-Commons-Vote-CompetitionVoting/02-version.t
 t/Data-Commons-Vote-CompetitionVoting/03-new.t
 t/Data-Commons-Vote-CompetitionVoting/04-created_by.t
-t/Data-Commons-Vote-HashType/01-use.t
-t/Data-Commons-Vote-HashType/02-version.t
 t/Data-Commons-Vote-Image/01-use.t
 t/Data-Commons-Vote-Image/02-version.t
 t/Data-Commons-Vote-Image/03-new.t
@@ -124,7 +122,6 @@ Vote/Competition.pm
 Vote/CompetitionValidation.pm
 Vote/CompetitionValidationOption.pm
 Vote/CompetitionVoting.pm
-Vote/HashType.pm
 Vote/Image.pm
 Vote/License.pm
 Vote/Log.pm
@@ -154,8 +151,6 @@ xt/Data-Commons-Vote-CompetitionValidationOption/01-pod_coverage.t
 xt/Data-Commons-Vote-CompetitionValidationOption/02-pod.t
 xt/Data-Commons-Vote-CompetitionVoting/01-pod_coverage.t
 xt/Data-Commons-Vote-CompetitionVoting/02-pod.t
-xt/Data-Commons-Vote-HashType/01-pod_coverage.t
-xt/Data-Commons-Vote-HashType/02-pod.t
 xt/Data-Commons-Vote-Image/01-pod_coverage.t
 xt/Data-Commons-Vote-Image/02-pod.t
 xt/Data-Commons-Vote-License/01-pod_coverage.t

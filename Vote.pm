@@ -25,10 +25,6 @@ Data::Commons::Vote - Data objects for commons.vote application.
 
 Data object for commons.vote competition.
 
-=item L<Data::Commons::Vote::HashType>
-
-TODO
-
 =item L<Data::Commons::Vote::Image>
 
 TODO
@@ -42,6 +38,10 @@ TODO
 TODO
 
 =item L<Data::Commons::Vote::Section>
+
+TODO
+
+=item L<Data::HashType>
 
 TODO
 

@@ -6,7 +6,6 @@ byt vice)
 4. Add competition tests for jury and public voting dates.
 6. Test for dt_uploaded to Image.
 7. Unify type lengths.
-8. Rewrite to Data::HashType.
 9.
 
 Applied
@@ -18,3 +17,6 @@ OK [20211216] skim
 
 5. Inherit Data::Commons::Vote::Image to Data::Image.
 OK [20221011] skim
+
+8. Rewrite to Data::HashType.
+OK [20230612] skim
