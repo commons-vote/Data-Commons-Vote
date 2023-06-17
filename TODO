@@ -6,7 +6,8 @@ byt vice)
 4. Add competition tests for jury and public voting dates.
 6. Test for dt_uploaded to Image.
 7. Unify type lengths.
-9.
+9. Data::Commons::Vote::Person rewrite to use Data::Person.
+10.
 
 Applied
 =======
